@@ -3,7 +3,6 @@ using Fifth.Services;
 using System;
 using Fifth.Domain;
 using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
 
 namespace Fifth.Controllers
 {
@@ -47,9 +46,9 @@ namespace Fifth.Controllers
 
         //POST: api/transaction
         [HttpPost]
-        public void Post([FromBody]JToken jsonData)
+        public void Post([FromBody] Transaction transaction)
         {
-            transactionService.Create(new Transaction(jsonData));
+            transactionService.Create(transaction);
         }
     }
 }

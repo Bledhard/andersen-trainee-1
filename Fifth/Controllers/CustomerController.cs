@@ -3,7 +3,6 @@ using Fifth.Services;
 using System;
 using Fifth.Domain;
 using System.Collections.Generic;
-using Newtonsoft.Json.Linq;
 
 namespace Fifth.Controllers
 {
@@ -33,16 +32,16 @@ namespace Fifth.Controllers
 
         //PATCH: api/customer/3
         [HttpPatch("{id}")]
-        public void Patch(int id, [FromBody]JObject jsonData)
+        public void Patch(int id, [FromBody] Customer customer)
         {
-            customerService.Update(id, jsonData);
+            customerService.Update(id, customer);
         }
 
         //POST: api/customer
         [HttpPost]
-        public void Post([FromBody]JToken jsonData)
+        public void Post([FromBody] Customer customer)
         {
-            customerService.Create(new Customer(jsonData));
+            customerService.Create(customer);
         }
 
         //DELETE: api/customer/5

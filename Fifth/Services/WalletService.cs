@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Reflection;
 using Fifth.Domain;
-using Newtonsoft.Json.Linq;
 
 namespace Fifth.Services
 {
     class WalletService
     {
-        public static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Documents\Visual Studio 2017\Projects\Fifth\Fifth\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
+        public static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Source\Repos\andersen-trainee-1\Fifth\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
 
         public void Create(Wallet obj)
         {
@@ -101,13 +101,13 @@ namespace Fifth.Services
             }
         }
 
-        public void Update(int id, JObject jsonData)
+        public void Update(int id, Wallet wallet)
         {
             using (SqlConnection cn = new SqlConnection(connectionString))
             {
-                foreach (var obj in jsonData)
+                foreach (PropertyInfo prop in wallet.GetType().GetProperties())
                 {
-                    string query = "update Wallets set " + obj.Key + "=\'" + obj.Value + "\' where id=" + id;
+                    string query = "update Wallets set " + prop.Name + "=\'" + prop.GetValue(wallet, null) + "\' where id=" + id;
                     SqlCommand cmd = new SqlCommand(query, cn);
                     cn.Open();
                     cmd.ExecuteNonQuery();

@@ -8,7 +8,7 @@ namespace Fifth.Services
 {
     class TransactionService
     {
-        public static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Documents\Visual Studio 2017\Projects\Fifth\Fifth\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
+        public static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Source\Repos\andersen-trainee-1\Fifth\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
 
         public void Create(Transaction obj)
         {

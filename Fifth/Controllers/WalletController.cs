@@ -51,9 +51,9 @@ namespace Fifth.Controllers
         
         // PATCH: api/Wallet/5
         [HttpPatch("{id}")]
-        public void Patch(int id, [FromBody]JObject jsonData)
+        public void Patch(int id, [FromBody]Wallet wallet)
         {
-            walletService.Update(id, jsonData);
+            walletService.Update(id, wallet);
         }
 
         // DELETE: api/ApiWithActions/5

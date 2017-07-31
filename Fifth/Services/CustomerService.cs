@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using Fifth.Domain;
 using Newtonsoft.Json.Linq;
+using System.Reflection;
 
 namespace Fifth.Services
 {
     class CustomerService
     {
-        public static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Documents\Visual Studio 2017\Projects\Fifth\Fifth\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
+        public static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Source\Repos\andersen-trainee-1\Fifth\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
             
         public void Create(Customer obj)
         {
@@ -76,13 +77,13 @@ namespace Fifth.Services
             }
         }
 
-        public void Update(int id, JObject jsonData)
+        public void Update(int id, Customer customer)
         {
             using (SqlConnection cn = new SqlConnection(connectionString))
             {
-                foreach (var obj in jsonData)
+                foreach (PropertyInfo prop in customer.GetType().GetProperties())
                 {
-                    string query = "update Customers set " + obj.Key + "=\'" + obj.Value + "\' where id=" + id;
+                    string query = "update Customers set " + prop.Name + "=\'" + prop.GetValue(customer, null) + "\' where id=" + id;
                     SqlCommand cmd = new SqlCommand(query, cn);
                     cn.Open();
                     cmd.ExecuteNonQuery();
