@@ -44,9 +44,9 @@ namespace Fifth.Controllers
         
         // POST: api/Wallet
         [HttpPost]
-        public void Post([FromBody]JToken jsonData)
+        public void Post([FromBody]Wallet wallet)
         {
-            walletService.Create(new Wallet(jsonData));
+            walletService.Create(wallet);
         }
         
         // PATCH: api/Wallet/5
