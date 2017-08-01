@@ -20,14 +20,14 @@ namespace Fifth.Controllers
         [HttpGet("{id}")]
         public Customer Get(int id)
         {
-            return customerService.ReadCustomer(id);
+            return customerService.Get(id);
         }
 
         //GET: api/customer
         [HttpGet]
         public List<Customer> Get()
         {
-            return customerService.ReadTable();
+            return customerService.Get();
         }
 
         //PATCH: api/customer/3

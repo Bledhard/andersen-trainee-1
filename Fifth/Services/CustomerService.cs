@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using Fifth.Domain;
-using Newtonsoft.Json.Linq;
-using System.Reflection;
+using Fifth.Interfaces;
 
 namespace Fifth.Services
 {
-    class CustomerService
+    public class CustomerService : IDbService<Customer>
     {
-        public static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Source\Repos\andersen-trainee-1\Fifth\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
-            
-        public void Create(Customer obj)
+        private const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Documents\Visual Studio 2017\Projects\Fourth\Data\FourthDB.mdf;Integrated Security=True;Connect Timeout=30";
+        private const string TableName = "Customers";
+
+        public void Create(Customer customer)
         {
-            using (SqlConnection cn = new SqlConnection(connectionString))
+            using (var cn = new SqlConnection(ConnectionString))
             {
-                string query = "insert into Customers(FirstName, Surname, BirthDate, Phone, [E-Mail]) values (" + "\'" + obj.firstName + "\'," + "\'" + obj.surname + "\',"
-                     + "\'" + obj.birthDate + "\'," + "\'" + obj.phone + "\'," + "\'" + obj.eMail + "\');";
-                SqlCommand cmd = new SqlCommand(query, cn);
+                var query = $"INSERT INTO {TableName} ({Customer.SqlKeysString()}) " +
+                            $"VALUES ({customer.SqlValuesString()});";
+                var cmd = new SqlCommand(query, cn);
                 cn.Open();
                 cmd.ExecuteNonQuery();
                 cn.Close();
@@ -25,79 +25,78 @@ namespace Fifth.Services
             //Create new wallet for each currency connected to this CustomerID
         }
 
-        public List<Customer> ReadTable()
+        public List<Customer> Get()
         {
-            List < Customer > tempList= new List< Customer >();
-            using (SqlConnection cn = new SqlConnection(connectionString))
+            var customerList = new List<Customer>();
+            using (var cn = new SqlConnection(ConnectionString))
             {
-                string query = "select * from Customers";
-                SqlCommand cmd = new SqlCommand(query, cn);
+                var query = $"SELECT Id, {Customer.SqlKeysString()} FROM {TableName};";
+                var cmd = new SqlCommand(query, cn);
                 cn.Open();
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        Customer temp = new Customer();
-                        temp.id = Convert.ToInt32(reader["id"]);
-                        temp.firstName = reader["FirstName"].ToString();
-                        temp.surname = reader["Surname"].ToString();
-                        temp.birthDate = Convert.ToDateTime(reader["BirthDate"]).Date.ToString();
-                        temp.phone = reader["Phone"].ToString();
-                        temp.eMail = reader["E-Mail"].ToString();
+                        var customer = new Customer()
+                        {
+                            Id = Convert.ToInt32(reader["id"]),
+                            FirstName = reader["FirstName"].ToString(),
+                            Surname = reader["Surname"].ToString(),
+                            BirthDate = Convert.ToDateTime(reader["BirthDate"]),
+                            EMail = reader["E-Mail"].ToString(),
+                            Phone = reader["Phone"].ToString()
+                        };
 
-                        tempList.Add(temp);
+                        customerList.Add(customer);
                     }
                 }
                 cn.Close();
-                return tempList;
+                return customerList;
             }
         }
 
-        public Customer ReadCustomer(int id)
+        public Customer Get(int id)
         {
-            Customer temp = new Customer();
-            using (SqlConnection cn = new SqlConnection(connectionString))
+            var customer = new Customer();
+            using (var cn = new SqlConnection(ConnectionString))
             {
-                string query = "select * from Customers where id=" + id;
-                SqlCommand cmd = new SqlCommand(query, cn);
+                string query = $"SELECT Id, {Customer.SqlKeysString()} FROM {TableName} WHERE Id={id};";
+                var cmd = new SqlCommand(query, cn);
                 cn.Open();
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        temp.firstName = reader["FirstName"].ToString();
-                        temp.surname = reader["Surname"].ToString();
-                        temp.birthDate = Convert.ToDateTime(reader["BirthDate"]).Date.ToString();
-                        temp.phone = reader["Phone"].ToString();
-                        temp.eMail = reader["E-Mail"].ToString();
+                        customer.FirstName = reader["FirstName"].ToString();
+                        customer.Surname = reader["Surname"].ToString();
+                        customer.BirthDate = Convert.ToDateTime(reader["BirthDate"]);
+                        customer.Phone = reader["Phone"].ToString();
+                        customer.EMail = reader["E-Mail"].ToString();
                     }
                 }
                 cn.Close();
-                return temp;
+                return customer;
             }
         }
 
-        public void Update(int id, Customer customer)
+        public void Update(Customer customer)
         {
-            using (SqlConnection cn = new SqlConnection(connectionString))
+            using (var cn = new SqlConnection(ConnectionString))
             {
-                foreach (PropertyInfo prop in customer.GetType().GetProperties())
-                {
-                    string query = "update Customers set " + prop.Name + "=\'" + prop.GetValue(customer, null) + "\' where id=" + id;
-                    SqlCommand cmd = new SqlCommand(query, cn);
-                    cn.Open();
-                    cmd.ExecuteNonQuery();
-                    cn.Close();
-                }
+                var query = customer.SqlUpdateString();
+                var cmd = new SqlCommand(query, cn);
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                cn.Close();
             }
         }
 
         public void Delete(int id)
         {
-            using (SqlConnection cn = new SqlConnection(connectionString))
+            using (var cn = new SqlConnection(ConnectionString))
             {
-                string query = "delete from Customers where id=" + id;
-                SqlCommand cmd = new SqlCommand(query, cn);
+                var query = $"DELETE FROM {TableName} WHERE Id={id};";
+                var cmd = new SqlCommand(query, cn);
                 cn.Open();
                 cmd.ExecuteNonQuery();
                 cn.Close();
