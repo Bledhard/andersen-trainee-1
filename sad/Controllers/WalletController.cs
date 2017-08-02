@@ -39,14 +39,14 @@ namespace AndersenTrainee1.Controllers
 
         // POST: api/wallet
         [HttpPost]
-        public void Post(Wallet wallet)
+        public void Post([FromBody] Wallet wallet)
         {
             walletService.Create(wallet);
         }
 
         // PATCH: api/wallet/5
         [HttpPatch]
-        public void Patch(Wallet wallet)
+        public void Patch([FromBody] Wallet wallet)
         {
             walletService.Update(wallet);
         }

@@ -47,7 +47,7 @@ namespace AndersenTrainee1.Controllers
 
         //POST: api/transaction
         [HttpPost]
-        public void Post(Transaction transaction)
+        public void Post([FromBody] Transaction transaction)
         {
             transactionService.Create(transaction);
         }

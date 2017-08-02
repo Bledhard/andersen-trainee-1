@@ -31,14 +31,14 @@ namespace AndersenTrainee1.Controllers
 
         //PATCH: api/customer/3
         [HttpPatch]
-        public void Patch(Customer customer)
+        public void Patch([FromBody] Customer customer)
         {
             customerService.Update(customer);
         }
 
         //POST: api/customer
         [HttpPost]
-        public void Post(Customer customer)
+        public void Post([FromBody] Customer customer)
         {
             customerService.Create(customer);
         }
