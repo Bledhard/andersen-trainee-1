@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using AndersenTrainee1.Services;
 using AndersenTrainee1.Domain;
-using System.Web.Mvc;
+using System.Web.Http;
 
 namespace AndersenTrainee1.Controllers
 {
-    [Route("api/[controller]")]
-    public class WalletController : Controller
+    [Route("api/wallet")]
+    public class WalletController : ApiController
     {
         private WalletService walletService;
 
@@ -23,7 +23,7 @@ namespace AndersenTrainee1.Controllers
         }
 
         // GET: api/wallet/cutomerwallets/5
-        [Route("api/[controller]/customer/")]
+        [Route("api/wallet/customer/")]
         [HttpGet]
         public List<Wallet> CustomerWallets(int CustomerID)
         {

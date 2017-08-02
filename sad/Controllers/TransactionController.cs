@@ -1,12 +1,12 @@
 ﻿using AndersenTrainee1.Services;
 using AndersenTrainee1.Domain;
 using System.Collections.Generic;
-using System.Web.Mvc;
+using System.Web.Http;
 
 namespace AndersenTrainee1.Controllers
 {
-    [Route("api/[controller]")]
-    public class TransactionController : Controller
+    [Route("api/transaction")]
+    public class TransactionController : ApiController
     {
         private TransactionService transactionService;
 
@@ -30,7 +30,7 @@ namespace AndersenTrainee1.Controllers
         }
 
         //GET: api/transaction/customer/5
-        [Route("api/[controller]/customer")]
+        [Route("api/transaction/customer")]
         [HttpGet]
         public List<Transaction> GetByCustomer(int id)
         {
@@ -38,7 +38,7 @@ namespace AndersenTrainee1.Controllers
         }
 
         //GET: api/transaction/wallet/5
-        [Route("api/[controller]/wallet")]
+        [Route("api/transaction/wallet")]
         [HttpGet]
         public List<Transaction> GetByWallet(int id)
         {

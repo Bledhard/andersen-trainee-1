@@ -1,12 +1,12 @@
 ﻿using AndersenTrainee1.Services;
 using AndersenTrainee1.Domain;
 using System.Collections.Generic;
-using System.Web.Mvc;
+using System.Web.Http;
 
 namespace AndersenTrainee1.Controllers
 {
-    [Route("api/[controller]")]
-    public class CustomerController : Controller
+    [Route("api/customer")]
+    public class CustomerController : ApiController
     {
         private CustomerService customerService;
 
