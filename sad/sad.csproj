@@ -170,22 +170,24 @@
     <Compile Include="Services\WalletService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\Components\app\app.component.css" />
-    <Content Include="app\Components\app\app.component.html" />
-    <Content Include="app\Components\app\app.component.js" />
-    <Content Include="app\Components\app\logo.svg" />
-    <Content Include="app\Components\customer\detail\customer-detail.component.html" />
-    <Content Include="app\Components\customer\detail\customer-detail.component.js" />
-    <Content Include="app\Components\customer\list\customer-list.component.css" />
-    <Content Include="app\Components\customer\list\customer-list.component.html" />
-    <Content Include="app\Components\customer\list\customer-list.component.js" />
-    <Content Include="app\Components\customer\summary\customer-summary.component.html" />
-    <Content Include="app\Components\customer\summary\customer-summary.component.js" />
-    <Content Include="app\Components\shared\customer.service.js" />
-    <Content Include="app\Components\shared\customer.type.js" />
-    <Content Include="app\Components\shared\header\header.component.html" />
-    <Content Include="app\Components\shared\header\header.component.js" />
-    <Content Include="app\Components\shared\header\logo.svg" />
+    <Content Include="src\app\Components\account\customer-list\account-customer-list.component.css" />
+    <Content Include="src\app\Components\account\customer-list\account-customer-list.component.html" />
+    <Content Include="src\app\Components\account\transaction-list\account-transaction-list.component.css" />
+    <Content Include="src\app\Components\account\transaction-list\account-transaction-list.component.html" />
+    <Content Include="src\app\Components\account\wallet\account-wallet.component.css" />
+    <Content Include="src\app\Components\account\wallet\account-wallet.component.html" />
+    <Content Include="src\app\Components\ex\ex-detail\ex-detail.component.html" />
+    <Content Include="src\app\Components\ex\ex-list\ex-list.component.html" />
+    <Content Include="src\app\Components\ex\ex-summary\ex-summary.component.css" />
+    <Content Include="src\app\Components\ex\ex-summary\ex-summary.component.html" />
+    <Content Include="src\app\Components\app\app.component.css" />
+    <Content Include="src\app\Components\app\app.component.html" />
+    <Content Include="src\app\Components\customer\detail\customer-detail.component.html" />
+    <Content Include="src\app\Components\customer\list\customer-list.component.css" />
+    <Content Include="src\app\Components\customer\list\customer-list.component.html" />
+    <Content Include="src\app\Components\customer\summary\customer-summary.component.html" />
+    <Content Include="src\app\Components\shared\header\header.component.html" />
+    <Content Include="src\app\Components\shared\header\logo.svg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -198,13 +200,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="package.json" />
-    <Content Include="app\Components\app\app.component.js.map" />
-    <Content Include="app\Components\customer\detail\customer-detail.component.js.map" />
-    <Content Include="app\Components\customer\list\customer-list.component.js.map" />
-    <Content Include="app\Components\customer\summary\customer-summary.component.js.map" />
-    <Content Include="app\Components\shared\customer.service.js.map" />
-    <Content Include="app\Components\shared\customer.type.js.map" />
-    <Content Include="app\Components\shared\header\header.component.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -258,15 +253,23 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app\Components\app\app.component.ts" />
-    <TypeScriptCompile Include="app\app.module.ts" />
-    <TypeScriptCompile Include="app\Components\customer\detail\customer-detail.component.ts" />
-    <TypeScriptCompile Include="app\Components\customer\list\customer-list.component.ts" />
-    <TypeScriptCompile Include="app\Components\customer\summary\customer-summary.component.ts" />
-    <TypeScriptCompile Include="app\Components\shared\customer.service.ts" />
-    <TypeScriptCompile Include="app\Components\shared\customer.type.ts" />
-    <TypeScriptCompile Include="app\Components\shared\header\header.component.ts" />
-    <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="src\app\Components\account\transaction-list\account-transaction-list.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\account\wallet\account-wallet.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\ex\ex-detail\ex-detail.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\ex\ex-list\ex-list.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\ex\ex-summary\ex-summary.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\app\app.component.ts" />
+    <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\Components\account\customer-list\account-customer-list.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\customer\detail\customer-detail.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\customer\list\customer-list.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\customer\summary\customer-summary.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\shared\account.type.ts" />
+    <TypeScriptCompile Include="src\app\Components\shared\customer.service.ts" />
+    <TypeScriptCompile Include="src\app\Components\shared\customer.type.ts" />
+    <TypeScriptCompile Include="src\app\Components\shared\header\header.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\shared\wallet.type.ts" />
+    <TypeScriptCompile Include="src\app\main.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
