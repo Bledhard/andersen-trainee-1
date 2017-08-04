@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using AndersenTrainee1.Domain;
 
 namespace AndersenTrainee1.Interfaces
 {
-    public interface IDbService<T>
+    public interface IDbService<T> where T: BaseEntity
+                                      
     {
         void Create(T item);
 

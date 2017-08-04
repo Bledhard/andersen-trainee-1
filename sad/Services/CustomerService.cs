@@ -6,23 +6,12 @@ using AndersenTrainee1.Interfaces;
 
 namespace AndersenTrainee1.Services
 {
-    public class CustomerService : IDbService<Customer>
+    public class CustomerService : BaseDbService<Customer>
     {
         private const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Source\Repos\andersen-trainee-1\sad\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
-        private const string TableName = "Customers";
-
-        public void Create(Customer customer)
+        
+        public CustomerService(string tableName) : base(tableName)
         {
-            using (var cn = new SqlConnection(ConnectionString))
-            {
-                var query = $"INSERT INTO {TableName} ({Customer.SqlKeysString()}) " +
-                            $"VALUES ({customer.SqlValuesString()});";
-                var cmd = new SqlCommand(query, cn);
-                cn.Open();
-                cmd.ExecuteNonQuery();
-                cn.Close();
-            }
-            //Create new wallet for each currency connected to this CustomerID
         }
 
         public List<Customer> Get()
@@ -30,7 +19,7 @@ namespace AndersenTrainee1.Services
             var customerList = new List<Customer>();
             using (var cn = new SqlConnection(ConnectionString))
             {
-                var query = $"SELECT Id, {Customer.SqlKeysString()} FROM {TableName};";
+                var query = $"SELECT Id, {new Customer().SqlKeysString()} FROM {this.TableName};";
                 var cmd = new SqlCommand(query, cn);
                 cn.Open();
                 using (var reader = cmd.ExecuteReader())

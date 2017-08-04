@@ -11,25 +11,7 @@ import { CustomerService } from '../../../shared/customer.service';
 export class BankAccountListComponent {
     customerArr: Customer[];
 
-    constructor(private customerService: CustomerService) {
-        //this.customerArr = [
-        //    {
-        //        id: 1,
-        //        name: "test",
-        //        surname: "qwe",
-        //        birthDate: new Date(),
-        //        phone: "123",
-        //        eMail: "zxc"
-        //    },
-        //    {
-        //        id: 2,
-        //        name: "asd",
-        //        surname: "zxc",
-        //        birthDate: new Date(),
-        //        phone: "456",
-        //        eMail: "qwe"
-        //    }
-        //]
+    constructor(private customerService: CustomerService) {       
     }
 
     ngOnInit() {
