@@ -1,8 +1,11 @@
 ﻿import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './components/app/app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+import { AppComponent } from './components/app/app.component';
+import { AppRoutingModule } from './app-routing.module';
 
 import { HeaderComponent } from './components/shared/header/header.component';
 
@@ -10,36 +13,19 @@ import { ExListComponent } from './components/ex/ex-list/ex-list.component';
 import { ExSummaryComponent } from './components/ex/ex-summary/ex-summary.component';
 import { ExDetailComponent } from './components/ex/ex-detail/ex-detail.component';
 
-import { AccountCustomerListComponent} from './components/account/customer-list/account-customer-list.component';
-import { AccountWalletComponent } from './components/account/wallet/account-wallet.component';
-import { AccountTransactionListComponent} from './components/account/transaction-list/account-transaction-list.component';
-
-const appRoutes: Routes = [
-    { 
-        path: '', 
-        redirectTo: 'ex', 
-        pathMatch: 'full' },
-    { 
-        path: 'account', 
-        component: AccountCustomerListComponent
-    },
-    {
-        path: 'wallet/:id',
-        component: AccountWalletComponent
-    },
-    {
-        path: 'transaction/:id',
-        component: AccountTransactionListComponent
-    },
-    { 
-        path: 'ex', 
-        component: ExListComponent 
-    },
-    { 
-        path: '**', 
-        redirectTo: 'account' 
-    }
-];
+import { CustomerService } from './components/shared/customer.service';
+import { WalletService } from './components/shared/wallet.service';
+import { BankAccountListComponent } from './components/bank/account/list/bank-account-list.component';
+import { BankAccountInfoComponent } from './components/bank/account/info/bank-account-info.component';
+import { BankCustomerInfoComponent } from './components/bank/customer/info/bank-customer-info.component';
+import { BankTransactionDetailComponent } from './components/bank/transaction/detail/bank-transaction-detail.component';
+import { BankTransactionHistoryComponent } from './components/bank/transaction/history/bank-transaction-history.component';
+import { BankTransactionSummaryComponent } from './components/bank/transaction/summary/bank-transaction-summary.component';
+import { BankTransactionLastComponent } from './components/bank/transaction/last/bank-transaction-last.component';
+import { BankWalletDetailComponent } from './components/bank/wallet/detail/bank-wallet-detail.component';
+import { BankWalletInfoComponent } from './components/bank/wallet/info/bank-wallet-info.component';
+import { BankWalletListComponent } from './components/bank/wallet/list/bank-wallet-list.component';
+import { BankWalletSummaryComponent } from './components/bank/wallet/summary/bank-wallet-summary.component';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -49,14 +35,27 @@ const appRoutes: Routes = [
         ExListComponent,
         ExDetailComponent,
         ExSummaryComponent,
-        AccountCustomerListComponent,
-        AccountWalletComponent,
-        AccountTransactionListComponent
+        BankAccountListComponent,
+        BankAccountInfoComponent,
+        BankCustomerInfoComponent,
+        BankTransactionDetailComponent,
+        BankTransactionHistoryComponent,
+        BankTransactionSummaryComponent,
+        BankTransactionLastComponent,
+        BankWalletDetailComponent,
+        BankWalletInfoComponent,
+        BankWalletListComponent,
+        BankWalletSummaryComponent,
     ],
     imports: [
+        HttpModule,
         BrowserModule,
         FormsModule,
-        RouterModule.forRoot(appRoutes)
+        AppRoutingModule
+    ],
+    providers: [
+        CustomerService,
+        WalletService
     ]
 })
 export class AppModule {

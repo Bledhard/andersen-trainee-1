@@ -11,13 +11,13 @@ export class CustomerService {
     }
 
     getCustomer(id: string) {
-        return this.http.get(`api/customer/get/${id}`)
+        return this.http.get(`api/customer/${id}`)
             .map(response => response.json() as Customer)
             .toPromise();
     }
 
     getAllCustomers() {
-        return this.http.get("api/customer/get")
+        return this.http.get("api/customer")
             .map(response => response.json() as Customer[])
             .toPromise();
     }

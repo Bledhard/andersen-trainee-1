@@ -8,7 +8,7 @@ namespace AndersenTrainee1.Services
 {
     class WalletService : IDbService<Wallet>
     {
-        public const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Documents\Visual Studio 2017\Projects\Andersen-Trainee-1\Andersen-Trainee-1\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
+        public const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Source\Repos\andersen-trainee-1\sad\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
         public const string TableName = "Wallets";
 
         public void Create(Wallet wallet)

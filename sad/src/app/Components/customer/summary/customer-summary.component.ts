@@ -17,6 +17,6 @@ export class CustomerSummaryComponent {
     }
     
     navigateToDetail() {
-        this.router.navigate(['detail', this.customer.id]);
+        this.router.navigate(['detail', this.customer.Id]);
     }
 }

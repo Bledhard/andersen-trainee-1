@@ -1,0 +1,47 @@
+﻿<button class="accordion"  data-toggle="collapse" attr.data-target="#customer{{customer.Id}}">{{customer.FirstName + " " + customer.Surname}}</button>
+<div id="customer{{customer.Id}}" class="collapse">
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    Id:
+                </td>
+                <td>
+                    {{customer.Id}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Name:
+                </td>
+                <td>
+                    {{customer.FirstName + " " + customer.Surname}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Born:
+                </td>
+                <td>
+                    {{customer.BirthDate}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Phone:
+                </td>
+                <td>
+                    {{customer.Phone}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    eMail:
+                </td>
+                <td>
+                    {{customer.EMail}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

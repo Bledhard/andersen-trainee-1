@@ -8,7 +8,7 @@ namespace AndersenTrainee1.Services
 {
     public class CustomerService : IDbService<Customer>
     {
-        private const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Documents\Visual Studio 2017\Projects\Andersen-Trainee-1\Andersen-Trainee-1\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
+        private const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Source\Repos\andersen-trainee-1\sad\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
         private const string TableName = "Customers";
 
         public void Create(Customer customer)
@@ -43,7 +43,7 @@ namespace AndersenTrainee1.Services
                             FirstName = reader["FirstName"].ToString(),
                             Surname = reader["Surname"].ToString(),
                             BirthDate = Convert.ToDateTime(reader["BirthDate"]),
-                            EMail = reader["E-Mail"].ToString(),
+                            EMail = reader["eMail"].ToString(),
                             Phone = reader["Phone"].ToString()
                         };
 
@@ -71,7 +71,7 @@ namespace AndersenTrainee1.Services
                         customer.Surname = reader["Surname"].ToString();
                         customer.BirthDate = Convert.ToDateTime(reader["BirthDate"]);
                         customer.Phone = reader["Phone"].ToString();
-                        customer.EMail = reader["E-Mail"].ToString();
+                        customer.EMail = reader["eMail"].ToString();
                     }
                 }
                 cn.Close();

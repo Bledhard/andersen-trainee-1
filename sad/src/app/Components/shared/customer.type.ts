@@ -1,10 +1,10 @@
 ﻿export class Customer {
-    id: number;
-    name: string;
-    surname: string;
-    birthDate: Date;
-    phone: string;
-    eMail: string;
+    Id: number;
+    FirstName: string;
+    Surname: string;
+    BirthDate: Date;
+    Phone: string;
+    EMail: string;
 
     constructor() {
         

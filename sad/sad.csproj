@@ -170,12 +170,26 @@
     <Compile Include="Services\WalletService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="src\app\Components\account\customer-list\account-customer-list.component.css" />
-    <Content Include="src\app\Components\account\customer-list\account-customer-list.component.html" />
-    <Content Include="src\app\Components\account\transaction-list\account-transaction-list.component.css" />
-    <Content Include="src\app\Components\account\transaction-list\account-transaction-list.component.html" />
-    <Content Include="src\app\Components\account\wallet\account-wallet.component.css" />
-    <Content Include="src\app\Components\account\wallet\account-wallet.component.html" />
+    <Content Include="src\app\Components\bank\account\info\bank-account-info.component.css" />
+    <Content Include="src\app\Components\bank\account\info\bank-account-info.component.html" />
+    <Content Include="src\app\Components\bank\account\list\bank-account-list.component.css" />
+    <Content Include="src\app\Components\bank\account\list\bank-account-list.component.html" />
+    <Content Include="src\app\Components\bank\customer\info\bank-customer-info.component.css" />
+    <Content Include="src\app\Components\bank\customer\info\bank-customer-info.component.html" />
+    <Content Include="src\app\Components\bank\transaction\detail\bank-transaction-detail.component.html" />
+    <Content Include="src\app\Components\bank\transaction\history\bank-transaction-history.component.css" />
+    <Content Include="src\app\Components\bank\transaction\history\bank-transaction-history.component.html" />
+    <Content Include="src\app\Components\bank\transaction\last\bank-transaction-last.component.css" />
+    <Content Include="src\app\Components\bank\transaction\last\bank-transaction-last.component.html" />
+    <Content Include="src\app\Components\bank\transaction\summary\bank-transaction-summary.component.css" />
+    <Content Include="src\app\Components\bank\transaction\summary\bank-transaction-summary.component.html" />
+    <Content Include="src\app\Components\bank\wallet\detail\bank-wallet-detail.component.css" />
+    <Content Include="src\app\Components\bank\wallet\detail\bank-wallet-detail.component.html" />
+    <Content Include="src\app\Components\bank\wallet\list\bank-wallet-list.component.html" />
+    <Content Include="src\app\Components\bank\wallet\list\bank-wallet-list.component.css" />
+    <Content Include="src\app\Components\bank\wallet\summary\bank-wallet-summary.component.css" />
+    <Content Include="src\app\Components\bank\wallet\info\bank-wallet-info.component.css" />
+    <Content Include="src\app\Components\bank\wallet\info\bank-wallet-info.component.html" />
     <Content Include="src\app\Components\ex\ex-detail\ex-detail.component.html" />
     <Content Include="src\app\Components\ex\ex-list\ex-list.component.html" />
     <Content Include="src\app\Components\ex\ex-summary\ex-summary.component.css" />
@@ -229,6 +243,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="tsconfig.json" />
+    <Content Include="src\app\Components\bank\wallet\summary\bank-wallet-summary.component.html" />
+    <Content Include="src\app\Components\bank\transaction\detail\bank-transaction-detail.component.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -253,23 +269,32 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="src\app\Components\account\transaction-list\account-transaction-list.component.ts" />
-    <TypeScriptCompile Include="src\app\Components\account\wallet\account-wallet.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\bank\account\info\bank-account-info.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\bank\customer\info\bank-customer-info.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\bank\transaction\detail\bank-transaction-detail.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\bank\transaction\history\bank-transaction-history.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\bank\transaction\last\bank-transaction-last.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\bank\transaction\summary\bank-transaction-summary.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\bank\wallet\detail\bank-wallet-detail.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\bank\wallet\list\bank-wallet-list.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\bank\wallet\summary\bank-wallet-summary.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\bank\wallet\info\bank-wallet-info.component.ts" />
     <TypeScriptCompile Include="src\app\Components\ex\ex-detail\ex-detail.component.ts" />
     <TypeScriptCompile Include="src\app\Components\ex\ex-list\ex-list.component.ts" />
     <TypeScriptCompile Include="src\app\Components\ex\ex-summary\ex-summary.component.ts" />
     <TypeScriptCompile Include="src\app\Components\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
-    <TypeScriptCompile Include="src\app\Components\account\customer-list\account-customer-list.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\bank\account\list\bank-account-list.component.ts" />
     <TypeScriptCompile Include="src\app\Components\customer\detail\customer-detail.component.ts" />
     <TypeScriptCompile Include="src\app\Components\customer\list\customer-list.component.ts" />
     <TypeScriptCompile Include="src\app\Components\customer\summary\customer-summary.component.ts" />
-    <TypeScriptCompile Include="src\app\Components\shared\account.type.ts" />
+    <TypeScriptCompile Include="src\app\Components\shared\wallet.service.ts" />
     <TypeScriptCompile Include="src\app\Components\shared\customer.service.ts" />
     <TypeScriptCompile Include="src\app\Components\shared\customer.type.ts" />
     <TypeScriptCompile Include="src\app\Components\shared\header\header.component.ts" />
     <TypeScriptCompile Include="src\app\Components\shared\wallet.type.ts" />
     <TypeScriptCompile Include="src\app\main.ts" />
+    <TypeScriptCompile Include="src\app\app-routing.module.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

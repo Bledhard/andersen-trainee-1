@@ -17,7 +17,7 @@ var CustomerSummaryComponent = (function () {
         this.router = router;
     }
     CustomerSummaryComponent.prototype.navigateToDetail = function () {
-        this.router.navigate(['detail', this.customer.id]);
+        this.router.navigate(['detail', this.customer.Id]);
     };
     return CustomerSummaryComponent;
 }());
