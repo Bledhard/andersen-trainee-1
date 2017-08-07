@@ -17,11 +17,10 @@ export class BankAccountInfoComponent {
 
     }
 
-    //ngOnInit() {
-    //    this.walletService.getWalletsByCustomerId(this.customer.id)
-    //        .then(walletArr => {
-    //            this.walletArr = walletArr;
-    //        })
-    //}
-
+    ngOnInit() {
+        this.walletService.getWalletsByCustomerId(this.customer.Id)
+            .then(walletArr => {
+                this.walletArr = walletArr;
+            })
+    }
 }

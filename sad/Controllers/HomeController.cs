@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace sad.Controllers
+namespace AndersenTrainee1.Controllers
 {
     public class HomeController : Controller
     {

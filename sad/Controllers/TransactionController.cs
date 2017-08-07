@@ -5,7 +5,7 @@ using System.Web.Http;
 
 namespace AndersenTrainee1.Controllers
 {
-    [Route("api/transaction")]
+    [RoutePrefix("api/transaction")]
     public class TransactionController : ApiController
     {
         private TransactionService transactionService;
@@ -30,7 +30,7 @@ namespace AndersenTrainee1.Controllers
         }
 
         //GET: api/transaction/customer/5
-        [Route("api/transaction/customer")]
+        [Route("customer/{id}")]
         [HttpGet]
         public List<Transaction> GetByCustomer(int id)
         {
@@ -38,7 +38,7 @@ namespace AndersenTrainee1.Controllers
         }
 
         //GET: api/transaction/wallet/5
-        [Route("api/transaction/wallet")]
+        [Route("wallet/{id}")]
         [HttpGet]
         public List<Transaction> GetByWallet(int id)
         {

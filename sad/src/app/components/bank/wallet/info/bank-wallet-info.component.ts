@@ -1,4 +1,5 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Input } from '@angular/core';
+import { Wallet } from '../../../shared/wallet.type';
 
 @Component({
     moduleId: module.id,
@@ -7,4 +8,9 @@
     styleUrls: ['bank-wallet-info.component.css']
 })
 export class BankWalletInfoComponent {
+    //@Input() wallet: Wallet;
+
+    constructor() {
+
+    }
 }

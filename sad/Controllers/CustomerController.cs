@@ -5,7 +5,7 @@ using System.Web.Http;
 
 namespace AndersenTrainee1.Controllers
 {
-    [Route("api/customer")]
+    [RoutePrefix("api/customer")]
     public class CustomerController : ApiController
     {
         private CustomerService customerService;

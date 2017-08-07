@@ -16,6 +16,13 @@ var BankAccountInfoComponent = (function () {
     function BankAccountInfoComponent(walletService) {
         this.walletService = walletService;
     }
+    BankAccountInfoComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.walletService.getWalletsByCustomerId(this.customer.Id)
+            .then(function (walletArr) {
+            _this.walletArr = walletArr;
+        });
+    };
     return BankAccountInfoComponent;
 }());
 __decorate([
