@@ -2,34 +2,18 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using AndersenTrainee1.Domain;
-using AndersenTrainee1.Interfaces;
 
 namespace AndersenTrainee1.Services
 {
-    class WalletService : IDbService<Wallet>
+    class WalletService : BaseDbService<Wallet>
     {
-        public const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Source\Repos\andersen-trainee-1\sad\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
-        public const string TableName = "Wallets";
-
-        public void Create(Wallet wallet)
+        public override List<Wallet> Get()
         {
+            var entity = new Wallet();
+            var walletList = new List<Wallet>();
             using (var cn = new SqlConnection(ConnectionString))
             {
-                var query = $"insert into {TableName}({Wallet.SqlKeysString()})" +
-                               $"values ({wallet.SqlValuesString()})";
-                var cmd = new SqlCommand(query, cn);
-                cn.Open();
-                cmd.ExecuteNonQuery();
-                cn.Close();
-            }
-        }
-
-        public List<Wallet> Get()
-        {
-            var tempList = new List<Wallet>();
-            using (var cn = new SqlConnection(ConnectionString))
-            {
-                var query = $"select Id, {Wallet.SqlKeysString()} from {TableName}";
+                var query = $"select Id, {entity.SqlKeysString()} from {entity.TableName()}";
                 var cmd = new SqlCommand(query, cn);
                 cn.Open();
                 using (var reader = cmd.ExecuteReader())
@@ -44,27 +28,28 @@ namespace AndersenTrainee1.Services
                             Currency = reader["Currency"].ToString(),
                             Amount = Convert.ToInt32(reader["Amount"])
                         };
-                        tempList.Add(wallet);
+                        walletList.Add(wallet);
                     }
                 }
                 cn.Close();
-                return tempList;
+                return walletList;
             }
         }
 
         public List<Wallet> GetByCustomerId(int CustomerId)
         {
-            var tempList = new List<Wallet>();
+            var entity = new Wallet();
+            var walletList = new List<Wallet>();
             using (var cn = new SqlConnection(ConnectionString))
             {
-                var query = $"select Id, {Wallet.SqlKeysString()} from {TableName} where CustomerID={CustomerId}";
+                var query = $"select Id, {entity.SqlKeysString()} from {entity.TableName()} where CustomerID={CustomerId}";
                 var cmd = new SqlCommand(query, cn);
                 cn.Open();
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        Wallet temp = new Wallet()
+                        Wallet wallet = new Wallet()
                         {
                             Id = Convert.ToInt32(reader["id"]),
                             CustomerId = Convert.ToInt32(reader["CustomerID"]),
@@ -72,20 +57,20 @@ namespace AndersenTrainee1.Services
                             Currency = reader["Currency"].ToString(),
                             Amount = Convert.ToInt32(reader["Amount"])
                         };
-                        tempList.Add(temp);
+                        walletList.Add(wallet);
                     }
                 }
                 cn.Close();
-                return tempList;
+                return walletList;
             }
         }
 
-        public Wallet Get(int id)
+        public override Wallet Get(int id)
         {
             var wallet = new Wallet();
             using (var cn = new SqlConnection(ConnectionString))
             {
-                var query = $"SELECT Id, {Customer.SqlKeysString()} FROM {TableName} WHERE Id={id};";
+                var query = $"SELECT Id, {wallet.SqlKeysString()} FROM {wallet.TableName()} WHERE Id={id};";
                 var cmd = new SqlCommand(query, cn);
                 cn.Open();
                 using (var reader = cmd.ExecuteReader())
@@ -104,23 +89,12 @@ namespace AndersenTrainee1.Services
             }
         }
 
-        public void Update(Wallet wallet)
-        {
-            using (var cn = new SqlConnection(ConnectionString))
-            {
-                var query = wallet.SqlUpdateString();
-                var cmd = new SqlCommand(query, cn);
-                cn.Open();
-                cmd.ExecuteNonQuery();
-                cn.Close();
-            }
-        }
-
         public void DeleteByCustomerID(int CustomerID)
         {
+            var entity = new Wallet();
             using (SqlConnection cn = new SqlConnection(ConnectionString))
             {
-                var query = $"DELETE FROM {TableName} WHERE Id={CustomerID};";
+                var query = $"DELETE FROM {entity.TableName()} WHERE Id={CustomerID};";
                 SqlCommand cmd = new SqlCommand(query, cn);
                 cn.Open();
                 cmd.ExecuteNonQuery();
@@ -128,11 +102,12 @@ namespace AndersenTrainee1.Services
             }
         }
 
-        public void Delete(int id)
+        public override void Delete(int id)
         {
+            var wallet = new Wallet();
             using (var cn = new SqlConnection(ConnectionString))
             {
-                var query = $"DELETE FROM {TableName} WHERE Id={id};";
+                var query = $"DELETE FROM {wallet.TableName()} WHERE Id={id};";
                 var cmd = new SqlCommand(query, cn);
                 cn.Open();
                 cmd.ExecuteNonQuery();

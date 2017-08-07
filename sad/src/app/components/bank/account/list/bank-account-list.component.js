@@ -14,24 +14,6 @@ var customer_service_1 = require("../../../shared/customer.service");
 var BankAccountListComponent = (function () {
     function BankAccountListComponent(customerService) {
         this.customerService = customerService;
-        //this.customerArr = [
-        //    {
-        //        id: 1,
-        //        name: "test",
-        //        surname: "qwe",
-        //        birthDate: new Date(),
-        //        phone: "123",
-        //        eMail: "zxc"
-        //    },
-        //    {
-        //        id: 2,
-        //        name: "asd",
-        //        surname: "zxc",
-        //        birthDate: new Date(),
-        //        phone: "456",
-        //        eMail: "qwe"
-        //    }
-        //]
     }
     BankAccountListComponent.prototype.ngOnInit = function () {
         var _this = this;

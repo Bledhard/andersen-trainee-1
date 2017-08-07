@@ -1,26 +1,30 @@
 ﻿namespace AndersenTrainee1.Domain
 {
-    public class Wallet
+    public class Wallet : BaseEntity
     {
-        public int Id { get; set; }
         public int CustomerId { get; set; }
         public bool Status { get; set; }
         public string Currency { get; set; }
         public decimal Amount { get; set; }
 
-        public string SqlValuesString()
+        public override string TableName()
+        {
+            return "Wallets";
+        }
+
+        public override string SqlValuesString()
         {
             return $"\'{this.CustomerId}, \'{this.Status}, \'{this.Currency}, \'{this.Amount}";
         }
 
-        public static string SqlKeysString()
+        public override string SqlKeysString()
         {
             return "CustomerID, Status, Currency, Amount";
         }
 
-        public string SqlUpdateString()
+        public override string SqlUpdateString()
         {
-            return $"UPDATE Wallets " +
+            return $"UPDATE {this.TableName()} " +
                    $"SET Status=\'{this.Status}, Currency=\'{this.Currency}, Amount=\'{this.Amount} " +
                    $"WHERE Id={this.Id};";
         }

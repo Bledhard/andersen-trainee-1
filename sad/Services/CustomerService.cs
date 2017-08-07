@@ -2,24 +2,18 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using AndersenTrainee1.Domain;
-using AndersenTrainee1.Interfaces;
 
 namespace AndersenTrainee1.Services
 {
     public class CustomerService : BaseDbService<Customer>
     {
-        private const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Source\Repos\andersen-trainee-1\sad\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
-        
-        public CustomerService(string tableName) : base(tableName)
+        public override List<Customer> Get()
         {
-        }
-
-        public List<Customer> Get()
-        {
+            var entity = new Customer();
             var customerList = new List<Customer>();
             using (var cn = new SqlConnection(ConnectionString))
             {
-                var query = $"SELECT Id, {new Customer().SqlKeysString()} FROM {this.TableName};";
+                var query = $"SELECT Id, {entity.SqlKeysString()} FROM {entity.TableName()};";
                 var cmd = new SqlCommand(query, cn);
                 cn.Open();
                 using (var reader = cmd.ExecuteReader())
@@ -44,12 +38,12 @@ namespace AndersenTrainee1.Services
             }
         }
 
-        public Customer Get(int id)
+        public override Customer Get(int id)
         {
             var customer = new Customer();
             using (var cn = new SqlConnection(ConnectionString))
             {
-                var query = $"SELECT Id, {Customer.SqlKeysString()} FROM {TableName} WHERE Id={id};";
+                var query = $"SELECT Id, {customer.SqlKeysString()} FROM {customer.TableName()} WHERE Id={id};";
                 var cmd = new SqlCommand(query, cn);
                 cn.Open();
                 using (var reader = cmd.ExecuteReader())
@@ -68,23 +62,12 @@ namespace AndersenTrainee1.Services
             }
         }
 
-        public void Update(Customer customer)
+        public override void Delete(int id)
         {
+            var customer = new Customer();
             using (var cn = new SqlConnection(ConnectionString))
             {
-                var query = customer.SqlUpdateString();
-                var cmd = new SqlCommand(query, cn);
-                cn.Open();
-                cmd.ExecuteNonQuery();
-                cn.Close();
-            }
-        }
-
-        public void Delete(int id)
-        {
-            using (var cn = new SqlConnection(ConnectionString))
-            {
-                var query = $"DELETE FROM {TableName} WHERE Id={id};";
+                var query = $"DELETE FROM {customer.TableName()} WHERE Id={id};";
                 var cmd = new SqlCommand(query, cn);
                 cn.Open();
                 cmd.ExecuteNonQuery();

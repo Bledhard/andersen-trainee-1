@@ -3,14 +3,18 @@ using AndersenTrainee1.Extensions;
 
 namespace AndersenTrainee1.Domain
 {
-    public class Transaction
+    public class Transaction : BaseEntity
     {
-        public int Id { get; set; }
         public int From { get; set; }
         public int To { get; set; }
         public string Currency { get; set; }
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
+
+        public override string TableName()
+        {
+            return "Transactions";
+        }
 
         public string SqlValuesString()
         {
@@ -24,7 +28,7 @@ namespace AndersenTrainee1.Domain
 
         public string SqlUpdateString()
         {
-            return $"UPDATE Transactions " +
+            return $"UPDATE {this.TableName()} " +
                    $"SET From=\'{this.From}, To=\'{this.To}, Date=\'{this.Date.ToDbDateTime()}, Currency=\'{this.Currency}, Amount=\'{this.Amount} " +
                    $"WHERE Id={Id};";
         }

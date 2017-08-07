@@ -1,6 +1,6 @@
 {
   "name": "andersen-trainee-1",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "scripts": {
     "start": "concurrent \"npm run tsc:w\" \"npm run lite\" ",
     "lite": "lite-server",

@@ -2,9 +2,19 @@
 
 namespace AndersenTrainee1.Domain
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         public int Id { get; set; }
+
+        protected BaseEntity()
+        {
+
+        }
+
+        public virtual string TableName()
+        {
+            throw new NotImplementedException();
+        }
 
         public virtual string SqlValuesString()
         {

@@ -6,22 +6,15 @@ using AndersenTrainee1.Domain;
 
 namespace AndersenTrainee1.Services
 {
-    public class BaseDbService<T> : IDbService<T> where T : BaseEntity
-                                                     
+    public abstract class BaseDbService<T> : IDbService<T> where T : BaseEntity                                                     
     {
-        private const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Source\Repos\andersen-trainee-1\sad\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
-        protected string TableName;
-
-        public BaseDbService(string tableName)
-        {
-            this.TableName = tableName;
-        }
+        protected const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Source\Repos\andersen-trainee-1\sad\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
 
         public virtual void Create(T entity)
         {
             using (var cn = new SqlConnection(ConnectionString))
             {
-                var query = $"INSERT INTO {TableName} ({entity.SqlKeysString()}) " +
+                var query = $"INSERT INTO {entity.TableName()} ({entity.SqlKeysString()}) " +
                             $"VALUES ({entity.SqlValuesString()});";
                 var cmd = new SqlCommand(query, cn);
                 cn.Open();
@@ -31,22 +24,29 @@ namespace AndersenTrainee1.Services
             //Create new wallet for each currency connected to this CustomerID
         }
 
-        public void Delete(int id)
+        public virtual List<T> Get()
         {
             throw new NotImplementedException();
         }
 
-        public List<T> Get()
+        public virtual T Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public T Get(int id)
+        public virtual void Update(T entity)
         {
-            throw new NotImplementedException();
+            using (var cn = new SqlConnection(ConnectionString))
+            {
+                var query = entity.SqlUpdateString();
+                var cmd = new SqlCommand(query, cn);
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                cn.Close();
+            }
         }
 
-        public void Update(T item)
+        public virtual void Delete(int id)
         {
             throw new NotImplementedException();
         }

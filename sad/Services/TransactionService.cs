@@ -2,29 +2,12 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using AndersenTrainee1.Domain;
-using AndersenTrainee1.Interfaces;
 
 namespace AndersenTrainee1.Services
 {
-    class TransactionService : IDbService<Transaction>
+    class TransactionService : BaseDbService<Transaction>
     {
-        private const string ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Bledhard\Source\Repos\andersen-trainee-1\sad\App_Data\db.mdf;Integrated Security=True;Connect Timeout=30";
-        private const string TableName = "Transactions";
-
-        public void Create(Transaction transaction)
-        {
-            using (var cn = new SqlConnection(ConnectionString))
-            {
-                var query = $"INSERT INTO {TableName} ({Transaction.SqlKeysString()}) " +
-                            $"VALUES ({transaction.SqlValuesString()});";
-                var cmd = new SqlCommand(query, cn);
-                cn.Open();
-                cmd.ExecuteNonQuery();
-                cn.Close();
-            }
-        }
-
-        public List<Transaction> Get()
+        public override List<Transaction> Get()
         {
             var transactionList = new List<Transaction>();
             using (var cn = new SqlConnection(ConnectionString))
@@ -95,7 +78,7 @@ namespace AndersenTrainee1.Services
             return transactionList;
         }
 
-        public Transaction Get(int id)
+        public override Transaction Get(int id)
         {
             var transaction = new Transaction();
             using (var cn = new SqlConnection(ConnectionString))
@@ -120,12 +103,12 @@ namespace AndersenTrainee1.Services
             }
         }
 
-        public void Update(Transaction transaction)
+        public override void Update(Transaction transaction)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(int id)
+        public override void Delete(int id)
         {
             throw new NotImplementedException();
         }

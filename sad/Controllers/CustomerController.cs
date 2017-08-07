@@ -12,7 +12,7 @@ namespace AndersenTrainee1.Controllers
 
         public CustomerController()
         {
-            this.customerService = new CustomerService("Customers");
+            this.customerService = new CustomerService();
         }
 
         //GET: api/customer/5
