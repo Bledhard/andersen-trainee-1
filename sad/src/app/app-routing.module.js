@@ -36,7 +36,7 @@ var appRoutes = [
     },
     {
         path: '**',
-        redirectTo: 'account'
+        redirectTo: 'ex'
     }
 ];
 var AppRoutingModule = (function () {

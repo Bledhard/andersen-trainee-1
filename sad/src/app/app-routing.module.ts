@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     },
     { 
         path: '**', 
-        redirectTo: 'account' 
+        redirectTo: 'ex' 
     }
 ];
 
