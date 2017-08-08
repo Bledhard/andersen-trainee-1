@@ -28,8 +28,7 @@ BankAccountListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
         selector: 'bank-account-list',
-        templateUrl: 'bank-account-list.component.html',
-        styleUrls: ['bank-account-list.component.css']
+        templateUrl: 'bank-account-list.component.html'
     }),
     __metadata("design:paramtypes", [customer_service_1.CustomerService])
 ], BankAccountListComponent);

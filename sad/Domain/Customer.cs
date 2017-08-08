@@ -18,7 +18,7 @@ namespace AndersenTrainee1.Domain
 
         public override string SqlValuesString()
         {
-            return $"\'{this.FirstName}, \'{this.Surname}, \'{this.BirthDate.ToDbDate()}, \'{this.Phone}, \'{this.EMail}";
+            return $"\'{this.FirstName}\', \'{this.Surname}\', \'{this.BirthDate.ToDbDate()}\', \'{this.Phone}\', \'{this.EMail}\'";
         }
 
         public override string SqlKeysString()

@@ -1,4 +1,6 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Input } from '@angular/core';
+
+import { TransactionLog } from '../../../shared/transaction-log.type';
 
 @Component({
     moduleId: module.id,
@@ -7,4 +9,10 @@
     styleUrls: ['bank-transaction-summary.component.css']
 })
 export class BankTransactionSummaryComponent {
+
+    @Input() transactionLog: TransactionLog;
+
+    constructor() {
+        console.log(this.transactionLog);
+    }
 }

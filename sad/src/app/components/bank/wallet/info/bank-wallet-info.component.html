@@ -1,40 +1,47 @@
-﻿<!--<div class="well">
-    <table>
-        <tbody>
-            <tr>
-                <td>
-                    Id:
-                </td>
-                <td>
-                    {{wallet.Id}}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Satus:
-                </td>
-                <td>
-                    {{wallet.Status}}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Currency:
-                </td>
-                <td>
-                    {{wallet.Currency}}
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Amount:
-                </td>
-                <td>
-                    {{wallet.Amount}}
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>-->
-
-<div class="well">qwe</div>
+﻿<div class="well" (click)="modal.show()">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        Id:
+                    </td>
+                    <td>
+                        {{wallet.Id}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Satus:
+                    </td>
+                    <td>
+                        {{wallet.Status}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Currency:
+                    </td>
+                    <td>
+                        {{wallet.Currency}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Amount:
+                    </td>
+                    <td>
+                        {{wallet.Amount}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+<app-modal #modal>
+    <div class="app-modal-body">
+        <bank-transaction-history [wallet]="wallet"></bank-transaction-history>
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" class="btn btn-default" (click)="modal.hide()">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+</app-modal>

@@ -14,7 +14,7 @@
 
         public override string SqlValuesString()
         {
-            return $"\'{this.CustomerId}, \'{this.Status}, \'{this.Currency}, \'{this.Amount}";
+            return $"\'{this.CustomerId}\', \'{this.Status}\', \'{this.Currency}\', \'{this.Amount}\'";
         }
 
         public override string SqlKeysString()

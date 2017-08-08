@@ -2,6 +2,7 @@
 using AndersenTrainee1.Domain;
 using System.Collections.Generic;
 using System.Web.Http;
+using System.Net.Http;
 
 namespace AndersenTrainee1.Controllers
 {
@@ -32,9 +33,9 @@ namespace AndersenTrainee1.Controllers
         //GET: api/transaction/customer/5
         [Route("customer/{id}")]
         [HttpGet]
-        public List<Transaction> GetByCustomer(int id)
+        public List<TransactionLog> GetByCustomer(int id)
         {
-            return transactionService.GetByCustomerId(id);
+            return transactionService.GetLogByCustomerId(id);
         }
 
         //GET: api/transaction/wallet/5
@@ -50,6 +51,13 @@ namespace AndersenTrainee1.Controllers
         public void Post([FromBody] Transaction transaction)
         {
             transactionService.Create(transaction);
+        }
+
+        [Route("test")]
+        [HttpPost]
+        public HttpResponseMessage Post()
+        {
+            return new HttpResponseMessage(System.Net.HttpStatusCode.OK);
         }
     }
 }

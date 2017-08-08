@@ -1,5 +1,4 @@
 ﻿using System;
-using AndersenTrainee1.Extensions;
 
 namespace AndersenTrainee1.Domain
 {
@@ -16,21 +15,19 @@ namespace AndersenTrainee1.Domain
             return "Transactions";
         }
 
-        public string SqlValuesString()
+        public override string SqlValuesString()
         {
-            return $"\'{this.From}, \'{this.To}, \'{this.Date.ToDbDateTime()}, \'{this.Currency}, \'{this.Amount}";
+            return $"\'{this.From}\', \'{this.To}\', \'{DateTime.Now}\', \'{this.Currency}\', \'{this.Amount}\'";
         }
 
-        public static string SqlKeysString()
+        public override string SqlKeysString()
         {
-            return "From, To, Date, Currency, Amount";
+            return "[From], [To], Date, Currency, Amount";
         }
 
-        public string SqlUpdateString()
+        public override string SqlUpdateString()
         {
-            return $"UPDATE {this.TableName()} " +
-                   $"SET From=\'{this.From}, To=\'{this.To}, Date=\'{this.Date.ToDbDateTime()}, Currency=\'{this.Currency}, Amount=\'{this.Amount} " +
-                   $"WHERE Id={Id};";
+            throw new NotImplementedException();
         }
     }
 }

@@ -6,11 +6,6 @@ namespace AndersenTrainee1.Domain
     {
         public int Id { get; set; }
 
-        protected BaseEntity()
-        {
-
-        }
-
         public virtual string TableName()
         {
             throw new NotImplementedException();

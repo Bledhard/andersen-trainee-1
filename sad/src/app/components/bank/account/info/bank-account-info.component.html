@@ -2,13 +2,55 @@
 <div id="customer{{customer.Id}}" class="collapse">
     <div class="row">
         <div class="col-xs-6">
-            <div class="well">qwe
+            <div class="well">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                id:
+                            </td>
+                            <td>
+                                {{customer.Id}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                name:
+                            </td>
+                            <td>
+                                {{customer.FirstName + " " + customer.Surname}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>    
+                                born:
+                            </td>
+                            <td>
+                                {{customer.BirthDate}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                phone:
+                            </td>
+                            <td>
+                                {{customer.Phone}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                email:
+                            </td>
+                            <td>
+                                {{customer.EMail}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="col-xs-6">
-            <div class="well">
-                <wallet-info *ngFor="let wallet of walletArr" [wallet]="wallet"></wallet-info>
-            </div>
+                <bank-wallet-info *ngFor="let wallet of walletArr" [wallet]="wallet"></bank-wallet-info>
         </div>
     </div>
 </div>

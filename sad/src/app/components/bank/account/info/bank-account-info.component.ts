@@ -1,4 +1,4 @@
-﻿import { Component, Input, OnInit, HostBinding, ElementRef } from '@angular/core';
+﻿import { Component, Input, OnInit } from '@angular/core';
 import { Customer } from '../../../shared/customer.type';
 import { Wallet } from '../../../shared/wallet.type';
 import { WalletService } from '../../../shared/wallet.service';
@@ -14,7 +14,6 @@ export class BankAccountInfoComponent {
     walletArr: Wallet[];
 
     constructor(private walletService: WalletService) {
-
     }
 
     ngOnInit() {
