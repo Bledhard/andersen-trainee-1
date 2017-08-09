@@ -2,7 +2,6 @@
 import { Http, Headers } from '@angular/http';
 import 'rxjs/Rx';
 
-
 import { Wallet } from './wallet.type';
 
 @Injectable()
@@ -12,7 +11,7 @@ export class WalletService {
     }
 
     getWalletsByCustomerId(id: number) {
-        return this.http.get(`api/wallet/${id}`)
+        return this.http.get(`api/wallet/customer/${id}`)
             .map(response => response.json() as Wallet[])
             .toPromise();
     }

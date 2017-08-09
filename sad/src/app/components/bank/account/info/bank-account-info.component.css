@@ -27,10 +27,22 @@
         content: "\2212";
     }
 
-div.panel {
+.panel {
     padding: 0 18px;
     background-color: white;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+}
+.customer {
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
+    display: inline-block;
+}
+.row {
+    margin-top: 5px;
+}
+.well:hover {
+    background-color: #ddd;
 }

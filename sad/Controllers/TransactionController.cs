@@ -2,10 +2,11 @@
 using AndersenTrainee1.Domain;
 using System.Collections.Generic;
 using System.Web.Http;
+using System.Net.Http;
 
 namespace AndersenTrainee1.Controllers
 {
-    [Route("api/transaction")]
+    [RoutePrefix("api/transaction")]
     public class TransactionController : ApiController
     {
         private TransactionService transactionService;
@@ -30,7 +31,7 @@ namespace AndersenTrainee1.Controllers
         }
 
         //GET: api/transaction/customer/5
-        [Route("api/transaction/customer")]
+        [Route("customer/{id}")]
         [HttpGet]
         public List<Transaction> GetByCustomer(int id)
         {
@@ -38,11 +39,11 @@ namespace AndersenTrainee1.Controllers
         }
 
         //GET: api/transaction/wallet/5
-        [Route("api/transaction/wallet")]
+        [Route("wallet/{id}")]
         [HttpGet]
-        public List<Transaction> GetByWallet(int id)
+        public List<TransactionLog> GetByWallet(int id)
         {
-            return transactionService.GetByWalletId(id);
+            return transactionService.GetLogByWalletId(id);
         }
 
         //POST: api/transaction
@@ -50,6 +51,13 @@ namespace AndersenTrainee1.Controllers
         public void Post([FromBody] Transaction transaction)
         {
             transactionService.Create(transaction);
+        }
+
+        [Route("test")]
+        [HttpPost]
+        public HttpResponseMessage Post()
+        {
+            return new HttpResponseMessage(System.Net.HttpStatusCode.OK);
         }
     }
 }

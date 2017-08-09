@@ -1,1 +1,21 @@
-﻿
+﻿<table class="table table-striped table-hover table-bordered table-condensed">
+    <thead>
+        <tr>
+            <td>
+                From:
+            </td>
+            <td>
+                To:
+            </td>
+            <td>
+                Amount:
+            </td>
+            <td>
+                Date:
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr bank-transaction-summary *ngFor="let transactionLog of transactionLogArr" [transactionLog]="transactionLog"></tr>
+    </tbody>
+</table>

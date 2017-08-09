@@ -26,6 +26,10 @@ var CustomerService = (function () {
             .map(function (response) { return response.json(); })
             .toPromise();
     };
+    CustomerService.prototype.updateCustomer = function (customer) {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var request = this.http.patch("api/customer/", JSON.stringify(customer), { headers: headers }).subscribe(function (result) { });
+    };
     return CustomerService;
 }());
 CustomerService = __decorate([

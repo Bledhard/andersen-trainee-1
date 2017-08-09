@@ -5,8 +5,7 @@ import { CustomerService } from '../../../shared/customer.service';
 @Component({
     moduleId: module.id,
     selector: 'bank-account-list',
-    templateUrl: 'bank-account-list.component.html',
-    styleUrls: ['bank-account-list.component.css']
+    templateUrl: 'bank-account-list.component.html'
 })
 export class BankAccountListComponent {
     customerArr: Customer[];

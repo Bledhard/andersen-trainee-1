@@ -5,7 +5,7 @@ using System.Web.Http;
 
 namespace AndersenTrainee1.Controllers
 {
-    [Route("api/wallet")]
+    [RoutePrefix("api/wallet")]
     public class WalletController : ApiController
     {
         private WalletService walletService;
@@ -23,11 +23,12 @@ namespace AndersenTrainee1.Controllers
         }
 
         // GET: api/wallet/cutomerwallets/5
-        [Route("api/wallet/customer/")]
+        
         [HttpGet]
-        public List<Wallet> CustomerWallets(int CustomerID)
+        [Route("customer/{id}")]
+        public List<Wallet> Customer(int id)
         {
-            return walletService.GetByCustomerId(CustomerID);
+            return walletService.GetByCustomerId(id);
         }
 
         //GET: api/wallet/5

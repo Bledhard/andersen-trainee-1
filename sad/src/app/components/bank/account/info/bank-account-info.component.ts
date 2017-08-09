@@ -1,7 +1,9 @@
-﻿import { Component, Input, OnInit, HostBinding, ElementRef } from '@angular/core';
+﻿import { Component, Input, OnInit } from '@angular/core';
+
 import { Customer } from '../../../shared/customer.type';
 import { Wallet } from '../../../shared/wallet.type';
 import { WalletService } from '../../../shared/wallet.service';
+import { ModalService } from '../../../shared/modal.service';
 
 @Component({
     moduleId: module.id,
@@ -13,15 +15,14 @@ export class BankAccountInfoComponent {
     @Input() customer: Customer;
     walletArr: Wallet[];
 
-    constructor(private walletService: WalletService) {
-
+    constructor(private walletService: WalletService,
+                private modalService: ModalService ) {
     }
 
-    //ngOnInit() {
-    //    this.walletService.getWalletsByCustomerId(this.customer.id)
-    //        .then(walletArr => {
-    //            this.walletArr = walletArr;
-    //        })
-    //}
-
+    ngOnInit() {
+        this.walletService.getWalletsByCustomerId(this.customer.Id)
+            .then(walletArr => {
+                this.walletArr = walletArr;
+            })
+    }
 }

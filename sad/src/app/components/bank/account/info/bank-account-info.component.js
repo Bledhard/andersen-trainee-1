@@ -12,10 +12,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var customer_type_1 = require("../../../shared/customer.type");
 var wallet_service_1 = require("../../../shared/wallet.service");
+var modal_service_1 = require("../../../shared/modal.service");
 var BankAccountInfoComponent = (function () {
-    function BankAccountInfoComponent(walletService) {
+    function BankAccountInfoComponent(walletService, modalService) {
         this.walletService = walletService;
+        this.modalService = modalService;
     }
+    BankAccountInfoComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.walletService.getWalletsByCustomerId(this.customer.Id)
+            .then(function (walletArr) {
+            _this.walletArr = walletArr;
+        });
+    };
     return BankAccountInfoComponent;
 }());
 __decorate([
@@ -29,7 +38,8 @@ BankAccountInfoComponent = __decorate([
         templateUrl: 'bank-account-info.component.html',
         styleUrls: ['bank-account-info.component.css'],
     }),
-    __metadata("design:paramtypes", [wallet_service_1.WalletService])
+    __metadata("design:paramtypes", [wallet_service_1.WalletService,
+        modal_service_1.ModalService])
 ], BankAccountInfoComponent);
 exports.BankAccountInfoComponent = BankAccountInfoComponent;
 //# sourceMappingURL=bank-account-info.component.js.map

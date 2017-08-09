@@ -10,16 +10,23 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
+var ng2_bootstrap_1 = require("ng2-bootstrap");
+require("node_modules/hammerjs/hammer.js");
 var app_component_1 = require("./components/app/app.component");
-var app_routing_module_1 = require("./app-routing.module");
+var app_routing_1 = require("./app.routing");
 var header_component_1 = require("./components/shared/header/header.component");
 var ex_list_component_1 = require("./components/ex/ex-list/ex-list.component");
 var ex_summary_component_1 = require("./components/ex/ex-summary/ex-summary.component");
 var ex_detail_component_1 = require("./components/ex/ex-detail/ex-detail.component");
+var modal_component_1 = require("./components/shared/modal.component");
 var customer_service_1 = require("./components/shared/customer.service");
 var wallet_service_1 = require("./components/shared/wallet.service");
+var transaction_service_1 = require("./components/shared/transaction.service");
+var transaction_log_service_1 = require("./components/shared/transaction-log.service");
+var modal_service_1 = require("./components/shared/modal.service");
 var bank_account_list_component_1 = require("./components/bank/account/list/bank-account-list.component");
 var bank_account_info_component_1 = require("./components/bank/account/info/bank-account-info.component");
+var bank_account_form_component_1 = require("./components/bank/account/form/bank-account-form.component");
 var bank_customer_info_component_1 = require("./components/bank/customer/info/bank-customer-info.component");
 var bank_transaction_detail_component_1 = require("./components/bank/transaction/detail/bank-transaction-detail.component");
 var bank_transaction_history_component_1 = require("./components/bank/transaction/history/bank-transaction-history.component");
@@ -54,16 +61,26 @@ AppModule = __decorate([
             bank_wallet_info_component_1.BankWalletInfoComponent,
             bank_wallet_list_component_1.BankWalletListComponent,
             bank_wallet_summary_component_1.BankWalletSummaryComponent,
+            bank_account_form_component_1.BankAccountFormComponent,
+            modal_component_1.ModalComponent
         ],
         imports: [
             http_1.HttpModule,
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
-            app_routing_module_1.AppRoutingModule
+            forms_1.ReactiveFormsModule,
+            ng2_bootstrap_1.DatepickerModule.forRoot(),
+            app_routing_1.routing,
+        ],
+        entryComponents: [
+            bank_transaction_summary_component_1.BankTransactionSummaryComponent
         ],
         providers: [
             customer_service_1.CustomerService,
-            wallet_service_1.WalletService
+            wallet_service_1.WalletService,
+            transaction_service_1.TransactionService,
+            transaction_log_service_1.TransactionLogService,
+            modal_service_1.ModalService
         ]
     })
 ], AppModule);

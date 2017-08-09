@@ -14,7 +14,7 @@
 
         public override string SqlValuesString()
         {
-            return $"\'{this.CustomerId}, \'{this.Status}, \'{this.Currency}, \'{this.Amount}";
+            return $"\'{this.CustomerId}\', \'{this.Status}\', \'{this.Currency}\', \'{this.Amount}\'";
         }
 
         public override string SqlKeysString()
@@ -25,7 +25,7 @@
         public override string SqlUpdateString()
         {
             return $"UPDATE {this.TableName()} " +
-                   $"SET Status=\'{this.Status}, Currency=\'{this.Currency}, Amount=\'{this.Amount} " +
+                   $"SET Status=\'{this.Status}\', Currency=\'{this.Currency}\', Amount=\'{this.Amount}\' " +
                    $"WHERE Id={this.Id};";
         }
     }

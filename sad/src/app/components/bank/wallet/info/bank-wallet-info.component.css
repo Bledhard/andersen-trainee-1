@@ -1,2 +1,7 @@
-﻿body {
+﻿.well:hover {
+    background-color: #ddd;
+}
+a {
+    color: inherit;
+    text-decoration: inherit;
 }
