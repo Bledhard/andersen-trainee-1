@@ -25,6 +25,6 @@ export class CustomerService {
 
     updateCustomer(customer: Customer) {
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        this.http.post(`api/customer/${customer.Id}`, JSON.stringify(customer), { headers: headers })
+        const request = this.http.patch(`api/customer/`, JSON.stringify(customer), { headers: headers }).subscribe(result => { });
     }
 }

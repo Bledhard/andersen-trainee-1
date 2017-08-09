@@ -40,7 +40,7 @@ export class BankAccountFormComponent {
             surname: ['', Validators.required],
             birthDate: Date.now(),
             phone: '',
-            eMail: ''
+            eMail: ['', Validators.pattern(/[\w\d\.\-\_]+@[\w\d]+(\.[\w\d]+)+/i)]
         });
     }
 

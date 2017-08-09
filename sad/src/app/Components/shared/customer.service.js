@@ -28,7 +28,7 @@ var CustomerService = (function () {
     };
     CustomerService.prototype.updateCustomer = function (customer) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-        this.http.post("api/customer/" + customer.Id, JSON.stringify(customer), { headers: headers });
+        var request = this.http.patch("api/customer/", JSON.stringify(customer), { headers: headers }).subscribe(function (result) { });
     };
     return CustomerService;
 }());

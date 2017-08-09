@@ -37,7 +37,7 @@ var BankAccountFormComponent = (function () {
             surname: ['', forms_1.Validators.required],
             birthDate: Date.now(),
             phone: '',
-            eMail: ''
+            eMail: ['', forms_1.Validators.pattern(/[\w\d\.\-\_]+@[\w\d]+(\.[\w\d]+)+/i)]
         });
     };
     BankAccountFormComponent.prototype.logNameChange = function () {
