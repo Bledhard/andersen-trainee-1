@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { DatepickerModule } from 'ng2-bootstrap';
 import 'node_modules/hammerjs/hammer.js';
 
 import { AppComponent } from './components/app/app.component';
@@ -65,6 +66,7 @@ import { BankWalletSummaryComponent } from './components/bank/wallet/summary/ban
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
+        DatepickerModule.forRoot(),
         routing,
     ],
     entryComponents: [

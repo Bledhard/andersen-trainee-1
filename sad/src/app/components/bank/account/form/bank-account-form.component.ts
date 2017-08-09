@@ -14,6 +14,7 @@ import { CustomerService } from '../../../shared/customer.service';
 export class BankAccountFormComponent {
     @Input() customer: Customer;
     customerForm: FormGroup;
+    date: Date;
     nameChangeLog: string[] = [];
 
     constructor(private fb: FormBuilder,
@@ -37,7 +38,7 @@ export class BankAccountFormComponent {
             name: ['', Validators.compose([Validators.required,
                 Validators.minLength(4), this.forbiddenNameValidator(/admin/i)])],
             surname: ['', Validators.required],
-            birthDate: '',
+            birthDate: Date.now(),
             phone: '',
             eMail: ''
         });

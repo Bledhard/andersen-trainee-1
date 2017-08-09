@@ -35,7 +35,7 @@ var BankAccountFormComponent = (function () {
             name: ['', forms_1.Validators.compose([forms_1.Validators.required,
                     forms_1.Validators.minLength(4), this.forbiddenNameValidator(/admin/i)])],
             surname: ['', forms_1.Validators.required],
-            birthDate: '',
+            birthDate: Date.now(),
             phone: '',
             eMail: ''
         });
