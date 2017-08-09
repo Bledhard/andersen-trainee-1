@@ -1,7 +1,9 @@
 ﻿import { Component, Input, OnInit } from '@angular/core';
+
 import { Customer } from '../../../shared/customer.type';
 import { Wallet } from '../../../shared/wallet.type';
 import { WalletService } from '../../../shared/wallet.service';
+import { ModalService } from '../../../shared/modal.service';
 
 @Component({
     moduleId: module.id,
@@ -13,7 +15,8 @@ export class BankAccountInfoComponent {
     @Input() customer: Customer;
     walletArr: Wallet[];
 
-    constructor(private walletService: WalletService) {
+    constructor(private walletService: WalletService,
+                private modalService: ModalService ) {
     }
 
     ngOnInit() {

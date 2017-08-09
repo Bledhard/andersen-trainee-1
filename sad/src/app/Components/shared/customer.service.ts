@@ -1,6 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 
 import { Customer } from './customer.type';
 
@@ -20,5 +21,10 @@ export class CustomerService {
         return this.http.get("api/customer")
             .map(response => response.json() as Customer[])
             .toPromise();
+    }
+
+    updateCustomer(customer: Customer) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        this.http.post(`api/customer/${customer.Id}`, JSON.stringify(customer), { headers: headers })
     }
 }

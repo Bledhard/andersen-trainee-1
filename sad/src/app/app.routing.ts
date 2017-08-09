@@ -19,8 +19,6 @@ import { BankWalletInfoComponent } from './components/bank/wallet/info/bank-wall
 import { BankWalletListComponent } from './components/bank/wallet/list/bank-wallet-list.component';
 import { BankWalletSummaryComponent } from './components/bank/wallet/summary/bank-wallet-summary.component';
 
-import { QComponent } from './q.component';
-
 
 const appRoutes: Routes = [
     { 

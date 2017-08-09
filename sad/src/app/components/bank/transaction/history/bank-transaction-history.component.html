@@ -16,6 +16,6 @@
         </tr>
     </thead>
     <tbody>
-        <bank-transaction-summary *ngFor="let transactionLog of transactionLogArr" [transactionLog]="transactionLog"></bank-transaction-summary>
+        <tr bank-transaction-summary *ngFor="let transactionLog of transactionLogArr" [transactionLog]="transactionLog"></tr>
     </tbody>
 </table>

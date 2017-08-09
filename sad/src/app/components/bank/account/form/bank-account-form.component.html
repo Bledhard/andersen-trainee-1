@@ -1,0 +1,44 @@
+﻿<form [formGroup]="customerForm" novalidate>
+    <div class="form-group">
+        <label class="center-block">
+            Name:
+            <input class="form-control" formControlName="name">
+        </label>
+    </div>
+    <div class="form-group">
+        <label class="center-block">
+            Surname:
+            <input class="form-control" formControlName="surname">
+        </label>
+    </div>
+    <div class="form-group">
+        <label class="center-block">
+            Date of birth:
+            <input class="form-control" formControlName="birthDate">
+        </label>
+    </div>
+    <div class="form-group">
+        <label class="center-block">
+            Phone:
+            <input class="form-control" formControlName="phone">
+        </label>
+    </div>
+    <div class="form-group">
+        <label class="center-block">
+            e-mail:
+            <input class="form-control" formControlName="eMail">
+        </label>
+    </div>
+
+    <div style="margin-bottom: 1em">
+        <button type="reset" (click)="revert()"
+                [disabled]="customerForm.pristine" class="btn btn-danger">
+            Revert
+        </button> &nbsp;
+        <button type="submit"
+                [disabled]="customerForm.pristine || customerForm.status == 'INVALID'" class="btn btn-success">
+            Save
+        </button>
+        
+    </div>
+</form>

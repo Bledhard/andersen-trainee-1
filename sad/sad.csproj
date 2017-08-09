@@ -173,6 +173,8 @@
     <Compile Include="Services\WalletService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\app\Components\bank\account\form\bank-account-form.component.css" />
+    <Content Include="src\app\Components\bank\account\form\bank-account-form.component.html" />
     <Content Include="src\app\Components\bank\account\info\bank-account-info.component.css" />
     <Content Include="src\app\Components\bank\account\info\bank-account-info.component.html" />
     <Content Include="src\app\Components\bank\account\list\bank-account-list.component.html" />
@@ -271,6 +273,7 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="src\app\Components\bank\account\form\bank-account-form.component.ts" />
     <TypeScriptCompile Include="src\app\Components\bank\account\info\bank-account-info.component.ts" />
     <TypeScriptCompile Include="src\app\Components\bank\customer\info\bank-customer-info.component.ts" />
     <TypeScriptCompile Include="src\app\Components\bank\transaction\detail\bank-transaction-detail.component.ts" />
@@ -302,7 +305,7 @@
     <TypeScriptCompile Include="src\app\Components\shared\wallet.type.ts" />
     <TypeScriptCompile Include="src\app\main.ts" />
     <TypeScriptCompile Include="src\app\app.routing.ts" />
-    <TypeScriptCompile Include="src\app\q.component.ts" />
+    <TypeScriptCompile Include="src\app\Components\shared\modal.component.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

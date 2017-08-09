@@ -12,10 +12,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var wallet_type_1 = require("../../../shared/wallet.type");
 var modal_service_1 = require("../../../shared/modal.service");
+var transaction_log_service_1 = require("../../../shared/transaction-log.service");
 var BankWalletInfoComponent = (function () {
-    function BankWalletInfoComponent(modalService) {
+    function BankWalletInfoComponent(modalService, transactionLogService) {
         this.modalService = modalService;
+        this.transactionLogService = transactionLogService;
     }
+    BankWalletInfoComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        if (this.wallet !== undefined) {
+            this.transactionLogService.getWalletTransactionLog(this.wallet.Id)
+                .then(function (transactionLogArr) {
+                _this.transactionLogArr = transactionLogArr;
+            });
+        }
+    };
     return BankWalletInfoComponent;
 }());
 __decorate([
@@ -29,36 +40,8 @@ BankWalletInfoComponent = __decorate([
         templateUrl: 'bank-wallet-info.component.html',
         styleUrls: ['bank-wallet-info.component.css']
     }),
-    __metadata("design:paramtypes", [modal_service_1.ModalService])
+    __metadata("design:paramtypes", [modal_service_1.ModalService,
+        transaction_log_service_1.TransactionLogService])
 ], BankWalletInfoComponent);
 exports.BankWalletInfoComponent = BankWalletInfoComponent;
-var ModalComponent = (function () {
-    function ModalComponent() {
-        this.visible = false;
-        this.visibleAnimate = false;
-    }
-    ModalComponent.prototype.show = function () {
-        var _this = this;
-        this.visible = true;
-        setTimeout(function () { return _this.visibleAnimate = true; }, 100);
-    };
-    ModalComponent.prototype.hide = function () {
-        var _this = this;
-        this.visibleAnimate = false;
-        setTimeout(function () { return _this.visible = false; }, 300);
-    };
-    ModalComponent.prototype.onContainerClicked = function (event) {
-        if (event.target.classList.contains('modal')) {
-            this.hide();
-        }
-    };
-    return ModalComponent;
-}());
-ModalComponent = __decorate([
-    core_1.Component({
-        selector: 'app-modal',
-        template: "\n  <div (click)=\"onContainerClicked($event)\" class=\"modal fade\" tabindex=\"-1\" [ngClass]=\"{'in': visibleAnimate}\"\n       [ngStyle]=\"{'display': visible ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}\">\n    <div class=\"modal-dialog\">\n      <div class=\"modal-content\">\n        <div class=\"modal-body\">\n          <ng-content select=\".app-modal-body\"></ng-content>\n        </div>\n        <div class=\"modal-footer\">\n          <ng-content select=\".app-modal-footer\"></ng-content>\n        </div>\n      </div>\n    </div>\n  </div>\n  "
-    })
-], ModalComponent);
-exports.ModalComponent = ModalComponent;
 //# sourceMappingURL=bank-wallet-info.component.js.map

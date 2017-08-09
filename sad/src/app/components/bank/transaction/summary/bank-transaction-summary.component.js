@@ -13,7 +13,6 @@ var core_1 = require("@angular/core");
 var transaction_log_type_1 = require("../../../shared/transaction-log.type");
 var BankTransactionSummaryComponent = (function () {
     function BankTransactionSummaryComponent() {
-        console.log(this.transactionLog);
     }
     return BankTransactionSummaryComponent;
 }());
@@ -24,7 +23,7 @@ __decorate([
 BankTransactionSummaryComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'bank-transaction-summary',
+        selector: '[bank-transaction-summary]',
         templateUrl: 'bank-transaction-summary.component.html',
         styleUrls: ['bank-transaction-summary.component.css']
     }),

@@ -2,7 +2,6 @@
 import { Http, Headers } from '@angular/http';
 import 'rxjs/Rx';
 
-
 import { Wallet } from './wallet.type';
 
 @Injectable()

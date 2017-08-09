@@ -67,19 +67,18 @@ namespace AndersenTrainee1.Services
 
         public List<Transaction> GetByCustomerId(int CustomerId)
         {
-            //var walletService = new WalletService();
-            //var walletList = new List<Wallet>();
-            //walletList = walletService.GetByCustomerId(CustomerId);
-            //var transactionList = new List<Transaction>();
-            //foreach (var wallet in walletList)
-            //{
-            //    transactionList.AddRange(GetByWalletId(wallet.Id));
-            //}
-            //return transactionList;
-            throw new NotImplementedException();
+            var walletService = new WalletService();
+            var walletList = new List<Wallet>();
+            walletList = walletService.GetByCustomerId(CustomerId);
+            var transactionList = new List<Transaction>();
+            foreach (var wallet in walletList)
+            {
+                transactionList.AddRange(GetByWalletId(wallet.Id));
+            }
+            return transactionList;
         }
-
-        public List<TransactionLog> GetLogByCustomerId(int CustomerId)
+        
+        public List<TransactionLog> GetLogByWalletId(int id)
         {
             var transactionLogList = new List<TransactionLog>();
             var query = "select A.FirstName as fn, A.Surname as fs, B.FirstName as tn, B.Surname as ts, " +
@@ -89,7 +88,7 @@ namespace AndersenTrainee1.Services
                     "inner join Transactions on Transactions.[From] = WA.Id) " +
                     "inner join Wallets as WB on WB.Id = Transactions.[To]) " +
                     "inner join Customers as B on B.Id = WB.CustomerId) " +
-                    "where WA.id =" + CustomerId;
+                    "where WA.id =" + id;
 
             using (var cn = new SqlConnection(ConnectionString))
             {

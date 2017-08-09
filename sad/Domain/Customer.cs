@@ -29,7 +29,7 @@ namespace AndersenTrainee1.Domain
         public override string SqlUpdateString()
         {
             return $"UPDATE {this.TableName()} " +
-                   $"SET Surname=\'{this.Surname}, FirstName=\'{this.FirstName}, BirthDate=\'{this.BirthDate.ToDbDate()}, Phone=\'{this.Phone}, eMail=\'{this.EMail} " +
+                   $"SET Surname=\'{this.Surname}\', FirstName=\'{this.FirstName}\', BirthDate=\'{this.BirthDate.ToDbDate()}\', Phone=\'{this.Phone}\', eMail=\'{this.EMail}\' " +
                    $"WHERE Id={Id};";
         }
     }

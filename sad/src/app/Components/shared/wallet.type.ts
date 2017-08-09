@@ -1,5 +1,5 @@
 ﻿export class Wallet {
-    id: number;
+    Id: number;
     customerId: number;
     status: boolean;
     currency: string;

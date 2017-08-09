@@ -38,10 +38,9 @@
 </div>
 <app-modal #modal>
     <div class="app-modal-body">
-        <bank-transaction-history [wallet]="wallet"></bank-transaction-history>
+        <bank-transaction-history [transactionLogArr]="transactionLogArr"></bank-transaction-history>
     </div>
     <div class="app-modal-footer">
         <button type="button" class="btn btn-default" (click)="modal.hide()">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
     </div>
 </app-modal>

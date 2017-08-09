@@ -16,8 +16,8 @@ var TransactionLogService = (function () {
     function TransactionLogService(http) {
         this.http = http;
     }
-    TransactionLogService.prototype.getAllCustomerTransaction = function (id) {
-        return this.http.get("api/transaction/customer/" + id)
+    TransactionLogService.prototype.getWalletTransactionLog = function (id) {
+        return this.http.get("api/transaction/wallet/" + id)
             .map(function (response) { return response.json(); })
             .toPromise();
     };

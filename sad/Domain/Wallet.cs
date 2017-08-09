@@ -25,7 +25,7 @@
         public override string SqlUpdateString()
         {
             return $"UPDATE {this.TableName()} " +
-                   $"SET Status=\'{this.Status}, Currency=\'{this.Currency}, Amount=\'{this.Amount} " +
+                   $"SET Status=\'{this.Status}\', Currency=\'{this.Currency}\', Amount=\'{this.Amount}\' " +
                    $"WHERE Id={this.Id};";
         }
     }

@@ -1,7 +1,7 @@
 ﻿import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import 'node_modules/hammerjs/hammer.js';
 
@@ -14,7 +14,7 @@ import { ExListComponent } from './components/ex/ex-list/ex-list.component';
 import { ExSummaryComponent } from './components/ex/ex-summary/ex-summary.component';
 import { ExDetailComponent } from './components/ex/ex-detail/ex-detail.component';
 
-import { QComponent, ModalComponent } from './q.component';
+import { ModalComponent } from './components/shared/modal.component';
 
 import { CustomerService } from './components/shared/customer.service';
 import { WalletService } from './components/shared/wallet.service';
@@ -24,6 +24,7 @@ import { ModalService } from './components/shared/modal.service';
 
 import { BankAccountListComponent } from './components/bank/account/list/bank-account-list.component';
 import { BankAccountInfoComponent } from './components/bank/account/info/bank-account-info.component';
+import { BankAccountFormComponent } from './components/bank/account/form/bank-account-form.component';
 
 import { BankCustomerInfoComponent } from './components/bank/customer/info/bank-customer-info.component';
 
@@ -56,13 +57,14 @@ import { BankWalletSummaryComponent } from './components/bank/wallet/summary/ban
         BankWalletInfoComponent,
         BankWalletListComponent,
         BankWalletSummaryComponent,
-        QComponent,
+        BankAccountFormComponent,
         ModalComponent
     ],
     imports: [
         HttpModule,
         BrowserModule,
-        FormsModule,        
+        FormsModule,
+        ReactiveFormsModule,
         routing,
     ],
     entryComponents: [

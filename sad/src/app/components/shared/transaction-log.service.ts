@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/Rx';
 
 import { TransactionLog } from './transaction-log.type';
@@ -10,8 +10,8 @@ export class TransactionLogService {
 
     }
 
-    getAllCustomerTransaction(id: number) {
-        return this.http.get(`api/transaction/customer/${id}`)
+    getWalletTransactionLog(id: number) {
+        return this.http.get(`api/transaction/wallet/${id}`)
             .map(response => response.json() as TransactionLog[])
             .toPromise();
     }

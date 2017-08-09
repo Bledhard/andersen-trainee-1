@@ -2,7 +2,7 @@
 <div id="customer{{customer.Id}}" class="collapse">
     <div class="row">
         <div class="col-xs-6">
-            <div class="well">
+            <div class="well" (click)="modal.show()">
                 <table>
                     <tbody>
                         <tr>
@@ -54,3 +54,12 @@
         </div>
     </div>
 </div>
+
+<app-modal #modal>
+    <div class="app-modal-body">
+        <bank-account-form [customer]="customer"></bank-account-form>
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" class="btn btn-default" (click)="modal.hide()">Close</button>
+    </div>
+</app-modal>

@@ -33,17 +33,17 @@ namespace AndersenTrainee1.Controllers
         //GET: api/transaction/customer/5
         [Route("customer/{id}")]
         [HttpGet]
-        public List<TransactionLog> GetByCustomer(int id)
+        public List<Transaction> GetByCustomer(int id)
         {
-            return transactionService.GetLogByCustomerId(id);
+            return transactionService.GetByCustomerId(id);
         }
 
         //GET: api/transaction/wallet/5
         [Route("wallet/{id}")]
         [HttpGet]
-        public List<Transaction> GetByWallet(int id)
+        public List<TransactionLog> GetByWallet(int id)
         {
-            return transactionService.GetByWalletId(id);
+            return transactionService.GetLogByWalletId(id);
         }
 
         //POST: api/transaction
