@@ -17,3 +17,5 @@ Here are:
    - Angular typesscript files;
 
 There's still a lot to do, but because of lack of time at August 2017 I've finished work with this project, making stable front-end part connected to DB through back-end logic.
+
+I can add something new to practice, in case someone will be intersted in this project - checkout commit history.
