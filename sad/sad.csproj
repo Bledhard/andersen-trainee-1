@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -152,6 +158,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Container.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TransactionController.cs" />
@@ -161,6 +168,12 @@
     <Compile Include="Domain\Transaction.cs" />
     <Compile Include="Domain\TransactionLog.cs" />
     <Compile Include="Domain\Wallet.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\IEntityFramewokBaseEntity.cs" />
+    <Compile Include="Entities\TaLog.cs" />
+    <Compile Include="Entities\Transaction.cs" />
+    <Compile Include="Entities\TransactionLog.cs" />
+    <Compile Include="Entities\Wallet.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -169,6 +182,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseDbService.cs" />
     <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\EntityFrameworkCustomerService.cs" />
+    <Compile Include="Services\EntityFrameworkTransactionService.cs" />
+    <Compile Include="Services\EntityFrameworkWalletService.cs" />
+    <Compile Include="Services\IEntityFrameworkDbService.cs" />
     <Compile Include="Services\TransactionService.cs" />
     <Compile Include="Services\WalletService.cs" />
   </ItemGroup>
@@ -214,9 +231,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="package.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

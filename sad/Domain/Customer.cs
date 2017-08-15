@@ -9,7 +9,7 @@ namespace AndersenTrainee1.Domain
         public string Surname { get; set; }
         public DateTime BirthDate { get; set; }
         public string Phone { get; set; }
-        public string EMail { get; set; }
+        public string eMail { get; set; }
 
         public override string TableName()
         {
@@ -18,7 +18,7 @@ namespace AndersenTrainee1.Domain
 
         public override string SqlValuesString()
         {
-            return $"\'{this.FirstName}\', \'{this.Surname}\', \'{this.BirthDate.ToDbDate()}\', \'{this.Phone}\', \'{this.EMail}\'";
+            return $"\'{this.FirstName}\', \'{this.Surname}\', \'{this.BirthDate.ToDbDate()}\', \'{this.Phone}\', \'{this.eMail}\'";
         }
 
         public override string SqlKeysString()
@@ -29,7 +29,7 @@ namespace AndersenTrainee1.Domain
         public override string SqlUpdateString()
         {
             return $"UPDATE {this.TableName()} " +
-                   $"SET Surname=\'{this.Surname}\', FirstName=\'{this.FirstName}\', BirthDate=\'{this.BirthDate.ToDbDate()}\', Phone=\'{this.Phone}\', eMail=\'{this.EMail}\' " +
+                   $"SET Surname=\'{this.Surname}\', FirstName=\'{this.FirstName}\', BirthDate=\'{this.BirthDate.ToDbDate()}\', Phone=\'{this.Phone}\', eMail=\'{this.eMail}\' " +
                    $"WHERE Id={Id};";
         }
     }

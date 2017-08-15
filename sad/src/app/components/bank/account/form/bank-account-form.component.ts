@@ -29,7 +29,7 @@ export class BankAccountFormComponent {
             surname: this.customer.Surname,
             birthDate: this.customer.BirthDate,
             phone: this.customer.Phone,
-            eMail: this.customer.EMail
+            eMail: this.customer.eMail
         })
     }
 
@@ -68,7 +68,7 @@ export class BankAccountFormComponent {
             Surname: formModel.surname as string,
             BirthDate: formModel.birthDate as Date,
             Phone: formModel.phone as string,
-            EMail: formModel.eMail as string
+            eMail: formModel.eMail as string
         };
         return saveCustomer;
     }

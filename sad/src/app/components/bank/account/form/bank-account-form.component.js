@@ -27,7 +27,7 @@ var BankAccountFormComponent = (function () {
             surname: this.customer.Surname,
             birthDate: this.customer.BirthDate,
             phone: this.customer.Phone,
-            eMail: this.customer.EMail
+            eMail: this.customer.eMail
         });
     };
     BankAccountFormComponent.prototype.createForm = function () {
@@ -60,7 +60,7 @@ var BankAccountFormComponent = (function () {
             Surname: formModel.surname,
             BirthDate: formModel.birthDate,
             Phone: formModel.phone,
-            EMail: formModel.eMail
+            eMail: formModel.eMail
         };
         return saveCustomer;
     };

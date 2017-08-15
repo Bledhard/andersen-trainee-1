@@ -4,7 +4,7 @@
     Surname: string;
     BirthDate: Date;
     Phone: string;
-    EMail: string;
+    eMail: string;
 
     constructor() {
         

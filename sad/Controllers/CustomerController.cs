@@ -1,18 +1,20 @@
-﻿using AndersenTrainee1.Services;
-using AndersenTrainee1.Domain;
+﻿//using AndersenTrainee1.Services;
+//using AndersenTrainee1.Domain;
 using System.Collections.Generic;
 using System.Web.Http;
+using AndersenTrainee1.EntityFramework.Services;
+using AndersenTrainee1.EntityFramework.Entities;
 
 namespace AndersenTrainee1.Controllers
 {
     [RoutePrefix("api/customer")]
     public class CustomerController : ApiController
     {
-        private CustomerService customerService;
+        private EntityFrameworkCustomerService customerService;
 
         public CustomerController()
         {
-            this.customerService = new CustomerService();
+            this.customerService = new EntityFrameworkCustomerService();
         }
 
         //GET: api/customer/5

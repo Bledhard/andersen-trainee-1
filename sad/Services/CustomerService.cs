@@ -26,7 +26,7 @@ namespace AndersenTrainee1.Services
                             FirstName = reader["FirstName"].ToString(),
                             Surname = reader["Surname"].ToString(),
                             BirthDate = Convert.ToDateTime(reader["BirthDate"]),
-                            EMail = reader["eMail"].ToString(),
+                            eMail = reader["eMail"].ToString(),
                             Phone = reader["Phone"].ToString()
                         };
 
@@ -54,7 +54,7 @@ namespace AndersenTrainee1.Services
                         customer.Surname = reader["Surname"].ToString();
                         customer.BirthDate = Convert.ToDateTime(reader["BirthDate"]);
                         customer.Phone = reader["Phone"].ToString();
-                        customer.EMail = reader["eMail"].ToString();
+                        customer.eMail = reader["eMail"].ToString();
                     }
                 }
                 cn.Close();
