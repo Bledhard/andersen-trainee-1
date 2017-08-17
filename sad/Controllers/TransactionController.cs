@@ -1,19 +1,21 @@
-﻿using AndersenTrainee1.Services;
-using AndersenTrainee1.Domain;
+﻿//using AndersenTrainee1.Services;
+//using AndersenTrainee1.Domain;
 using System.Collections.Generic;
 using System.Web.Http;
 using System.Net.Http;
+using AndersenTrainee1.EntityFramework.Services;
+using AndersenTrainee1.EntityFramework.Entities;
 
 namespace AndersenTrainee1.Controllers
 {
     [RoutePrefix("api/transaction")]
     public class TransactionController : ApiController
     {
-        private TransactionService transactionService;
+        private EntityFrameworkTransactionService transactionService;
 
         public TransactionController()
         {
-            this.transactionService = new TransactionService();
+            this.transactionService = new EntityFrameworkTransactionService();
         }
 
         //GET: api/transaction
@@ -41,7 +43,7 @@ namespace AndersenTrainee1.Controllers
         //GET: api/transaction/wallet/5
         [Route("wallet/{id}")]
         [HttpGet]
-        public List<TransactionLog> GetByWallet(int id)
+        public List<TaLog> GetByWallet(int id)
         {
             return transactionService.GetLogByWalletId(id);
         }
@@ -53,10 +55,11 @@ namespace AndersenTrainee1.Controllers
             transactionService.Create(transaction);
         }
 
-        [Route("test")]
+        [Route("gen")]
         [HttpPost]
         public HttpResponseMessage Post()
         {
+            transactionService.Generate();
             return new HttpResponseMessage(System.Net.HttpStatusCode.OK);
         }
     }

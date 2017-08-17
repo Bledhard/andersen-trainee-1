@@ -1,8 +1,8 @@
 ﻿export class TransactionLog {
-    FromName: string;
-    FromSurname: string;
-    ToName: string;
-    ToSurname: string;
+    fn: string;
+    fs: string;
+    tn: string;
+    ts: string;
     Currency: string;
     Ammount: number;
     Date: Date;

@@ -66,7 +66,7 @@ namespace AndersenTrainee1.EntityFramework.Services
                             join t in db.Transactions on wa.Id equals t.From
                             join wb in db.Wallets on t.To equals wb.Id
                             join cb in db.Customers on wb.CustomerId equals cb.Id
-                            where ca.Id == id
+                            where wa.Id == id
                             select new
                             {
                                 fn = ca.FirstName,
@@ -94,6 +94,44 @@ namespace AndersenTrainee1.EntityFramework.Services
         public void Delete(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public void Generate()
+        {
+            //Method is created for testing purposes, to enlarge DB so its possible to train some specific SQL queries
+            using (var db = new Container())
+            {
+                var WalletList = db.Wallets.ToList();
+                var WalletIdList = new List<int>();
+                var rand = new Random();
+                foreach (Wallet wallet in WalletList)
+                {
+                    WalletIdList.Add(wallet.Id);
+                }
+                var TransactionList = new Transaction[100];
+                for (int i = 0; i < TransactionList.Length; i++)
+                {
+                    int tID;
+                    var fID = rand.Next(WalletIdList.Count - 1);
+                    do {
+                        tID = rand.Next(WalletIdList.Count - 1);
+                    }
+                    while (tID == fID);
+
+                    TransactionList[i] = new Transaction()
+                    {
+                        Id = rand.Next(10000, 20000),
+                        From = WalletIdList[fID],
+                        To = WalletIdList[tID],
+                        Amount = rand.Next(1000),
+                        Currency = WalletList[fID].Currency,
+                        Date = DateTime.Now
+                    };
+                }
+
+                db.Transactions.AddRange(TransactionList);
+                db.SaveChanges();
+            }
         }
     }
 }
