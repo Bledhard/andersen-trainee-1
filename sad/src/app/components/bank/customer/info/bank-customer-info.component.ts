@@ -18,6 +18,7 @@ export class BankCustomerInfoComponent {
 
     ngOnInit() {
         this.customerService.getAllCustomers()
-            .then(customerList => this.customerList = customerList);
+            .map(res => res.json())
+            .subscribe(customerList => this.customerList = customerList);
     }
 }

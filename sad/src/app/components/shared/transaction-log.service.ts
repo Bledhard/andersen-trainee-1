@@ -11,8 +11,6 @@ export class TransactionLogService {
     }
 
     getWalletTransactionLog(id: number) {
-        return this.http.get(`api/transaction/wallet/${id}`)
-            .map(response => response.json() as TransactionLog[])
-            .toPromise();
+        return this.http.get(`api/transaction/wallet/${id}`);
     }
 }

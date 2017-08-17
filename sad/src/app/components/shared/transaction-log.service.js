@@ -17,9 +17,7 @@ var TransactionLogService = (function () {
         this.http = http;
     }
     TransactionLogService.prototype.getWalletTransactionLog = function (id) {
-        return this.http.get("api/transaction/wallet/" + id)
-            .map(function (response) { return response.json(); })
-            .toPromise();
+        return this.http.get("api/transaction/wallet/" + id);
     };
     return TransactionLogService;
 }());

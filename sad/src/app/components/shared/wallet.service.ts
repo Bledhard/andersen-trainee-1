@@ -12,7 +12,5 @@ export class WalletService {
 
     getWalletsByCustomerId(id: number) {
         return this.http.get(`api/wallet/customer/${id}`)
-            .map(response => response.json() as Wallet[])
-            .toPromise();
     }
 }

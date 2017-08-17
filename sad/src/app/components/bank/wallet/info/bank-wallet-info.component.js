@@ -22,7 +22,8 @@ var BankWalletInfoComponent = (function () {
         var _this = this;
         if (this.wallet !== undefined) {
             this.transactionLogService.getWalletTransactionLog(this.wallet.Id)
-                .then(function (transactionLogArr) {
+                .map(function (res) { return res.json(); })
+                .subscribe(function (transactionLogArr) {
                 _this.transactionLogArr = transactionLogArr;
             });
         }

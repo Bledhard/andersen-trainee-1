@@ -21,7 +21,8 @@ var BankAccountInfoComponent = (function () {
     BankAccountInfoComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.walletService.getWalletsByCustomerId(this.customer.Id)
-            .then(function (walletArr) {
+            .map(function (res) { return res.json(); })
+            .subscribe(function (walletArr) {
             _this.walletArr = walletArr;
         });
     };

@@ -17,14 +17,10 @@ var CustomerService = (function () {
         this.http = http;
     }
     CustomerService.prototype.getCustomer = function (id) {
-        return this.http.get("api/customer/" + id)
-            .map(function (response) { return response.json(); })
-            .toPromise();
+        return this.http.get("api/customer/" + id);
     };
     CustomerService.prototype.getAllCustomers = function () {
-        return this.http.get("api/customer")
-            .map(function (response) { return response.json(); })
-            .toPromise();
+        return this.http.get("api/customer");
     };
     CustomerService.prototype.updateCustomer = function (customer) {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });

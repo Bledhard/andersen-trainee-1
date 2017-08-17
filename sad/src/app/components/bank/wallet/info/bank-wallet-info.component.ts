@@ -25,7 +25,8 @@ export class BankWalletInfoComponent {
     ngOnInit() {
         if (this.wallet !== undefined) {
             this.transactionLogService.getWalletTransactionLog(this.wallet.Id)
-                .then(transactionLogArr => {
+                .map(res => res.json())
+                .subscribe(transactionLogArr => {
                     this.transactionLogArr = transactionLogArr;
                 })
         }

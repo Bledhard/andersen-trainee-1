@@ -15,7 +15,8 @@ export class BankAccountListComponent {
 
     ngOnInit() {
         this.customerService.getAllCustomers()
-            .then(customerArr => {
+            .map(res => res.json())
+            .subscribe(customerArr => {
                 this.customerArr = customerArr;
             })
     }

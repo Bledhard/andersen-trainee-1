@@ -17,9 +17,7 @@ var WalletService = (function () {
         this.http = http;
     }
     WalletService.prototype.getWalletsByCustomerId = function (id) {
-        return this.http.get("api/wallet/customer/" + id)
-            .map(function (response) { return response.json(); })
-            .toPromise();
+        return this.http.get("api/wallet/customer/" + id);
     };
     return WalletService;
 }());

@@ -18,7 +18,8 @@ var BankAccountListComponent = (function () {
     BankAccountListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.customerService.getAllCustomers()
-            .then(function (customerArr) {
+            .map(function (res) { return res.json(); })
+            .subscribe(function (customerArr) {
             _this.customerArr = customerArr;
         });
     };

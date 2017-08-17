@@ -18,7 +18,8 @@ var BankCustomerInfoComponent = (function () {
     BankCustomerInfoComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.customerService.getAllCustomers()
-            .then(function (customerList) { return _this.customerList = customerList; });
+            .map(function (res) { return res.json(); })
+            .subscribe(function (customerList) { return _this.customerList = customerList; });
     };
     return BankCustomerInfoComponent;
 }());

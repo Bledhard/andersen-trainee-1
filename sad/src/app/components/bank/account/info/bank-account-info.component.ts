@@ -21,7 +21,8 @@ export class BankAccountInfoComponent {
 
     ngOnInit() {
         this.walletService.getWalletsByCustomerId(this.customer.Id)
-            .then(walletArr => {
+            .map(res=> res.json())
+            .subscribe(walletArr => {
                 this.walletArr = walletArr;
             })
     }
