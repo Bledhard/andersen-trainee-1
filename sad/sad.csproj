@@ -26,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -211,16 +212,8 @@
     <Content Include="src\app\Components\bank\wallet\summary\bank-wallet-summary.component.css" />
     <Content Include="src\app\Components\bank\wallet\info\bank-wallet-info.component.css" />
     <Content Include="src\app\Components\bank\wallet\info\bank-wallet-info.component.html" />
-    <Content Include="src\app\Components\ex\ex-detail\ex-detail.component.html" />
-    <Content Include="src\app\Components\ex\ex-list\ex-list.component.html" />
-    <Content Include="src\app\Components\ex\ex-summary\ex-summary.component.css" />
-    <Content Include="src\app\Components\ex\ex-summary\ex-summary.component.html" />
     <Content Include="src\app\Components\app\app.component.css" />
     <Content Include="src\app\Components\app\app.component.html" />
-    <Content Include="src\app\Components\customer\detail\customer-detail.component.html" />
-    <Content Include="src\app\Components\customer\list\customer-list.component.css" />
-    <Content Include="src\app\Components\customer\list\customer-list.component.html" />
-    <Content Include="src\app\Components\customer\summary\customer-summary.component.html" />
     <Content Include="src\app\Components\shared\header\header.component.html" />
     <Content Include="src\app\Components\shared\header\logo.svg" />
     <Content Include="Content\bootstrap.css" />
@@ -298,15 +291,9 @@
     <TypeScriptCompile Include="src\app\Components\bank\wallet\list\bank-wallet-list.component.ts" />
     <TypeScriptCompile Include="src\app\Components\bank\wallet\summary\bank-wallet-summary.component.ts" />
     <TypeScriptCompile Include="src\app\Components\bank\wallet\info\bank-wallet-info.component.ts" />
-    <TypeScriptCompile Include="src\app\Components\ex\ex-detail\ex-detail.component.ts" />
-    <TypeScriptCompile Include="src\app\Components\ex\ex-list\ex-list.component.ts" />
-    <TypeScriptCompile Include="src\app\Components\ex\ex-summary\ex-summary.component.ts" />
     <TypeScriptCompile Include="src\app\Components\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\Components\bank\account\list\bank-account-list.component.ts" />
-    <TypeScriptCompile Include="src\app\Components\customer\detail\customer-detail.component.ts" />
-    <TypeScriptCompile Include="src\app\Components\customer\list\customer-list.component.ts" />
-    <TypeScriptCompile Include="src\app\Components\customer\summary\customer-summary.component.ts" />
     <TypeScriptCompile Include="src\app\Components\shared\modal.service.ts" />
     <TypeScriptCompile Include="src\app\Components\shared\transaction-log.service.ts" />
     <TypeScriptCompile Include="src\app\Components\shared\transaction-log.type.ts" />

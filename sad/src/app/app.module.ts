@@ -10,11 +10,6 @@ import { AppComponent } from './components/app/app.component';
 import { routing } from './app.routing';
 
 import { HeaderComponent } from './components/shared/header/header.component';
-
-import { ExListComponent } from './components/ex/ex-list/ex-list.component';
-import { ExSummaryComponent } from './components/ex/ex-summary/ex-summary.component';
-import { ExDetailComponent } from './components/ex/ex-detail/ex-detail.component';
-
 import { ModalComponent } from './components/shared/modal.component';
 
 import { CustomerService } from './components/shared/customer.service';
@@ -44,9 +39,6 @@ import { BankWalletSummaryComponent } from './components/bank/wallet/summary/ban
     declarations: [
         AppComponent,
         HeaderComponent,
-        ExListComponent,
-        ExDetailComponent,
-        ExSummaryComponent,
         BankAccountListComponent,
         BankAccountInfoComponent,
         BankCustomerInfoComponent,

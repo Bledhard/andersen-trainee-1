@@ -15,9 +15,6 @@ require("node_modules/hammerjs/hammer.js");
 var app_component_1 = require("./components/app/app.component");
 var app_routing_1 = require("./app.routing");
 var header_component_1 = require("./components/shared/header/header.component");
-var ex_list_component_1 = require("./components/ex/ex-list/ex-list.component");
-var ex_summary_component_1 = require("./components/ex/ex-summary/ex-summary.component");
-var ex_detail_component_1 = require("./components/ex/ex-detail/ex-detail.component");
 var modal_component_1 = require("./components/shared/modal.component");
 var customer_service_1 = require("./components/shared/customer.service");
 var wallet_service_1 = require("./components/shared/wallet.service");
@@ -47,9 +44,6 @@ AppModule = __decorate([
         declarations: [
             app_component_1.AppComponent,
             header_component_1.HeaderComponent,
-            ex_list_component_1.ExListComponent,
-            ex_detail_component_1.ExDetailComponent,
-            ex_summary_component_1.ExSummaryComponent,
             bank_account_list_component_1.BankAccountListComponent,
             bank_account_info_component_1.BankAccountInfoComponent,
             bank_customer_info_component_1.BankCustomerInfoComponent,

@@ -1,10 +1,6 @@
 ﻿import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ExListComponent } from './components/ex/ex-list/ex-list.component';
-import { ExSummaryComponent } from './components/ex/ex-summary/ex-summary.component';
-import { ExDetailComponent } from './components/ex/ex-detail/ex-detail.component';
-
 import { BankAccountListComponent } from './components/bank/account/list/bank-account-list.component';
 import { BankAccountInfoComponent } from './components/bank/account/info/bank-account-info.component';
 import { BankCustomerInfoComponent } from './components/bank/customer/info/bank-customer-info.component';
@@ -22,28 +18,12 @@ import { BankWalletSummaryComponent } from './components/bank/wallet/summary/ban
 
 const appRoutes: Routes = [
     { 
-        path: '', 
-        redirectTo: 'ex', 
+        path: '',
+        component: BankAccountListComponent,
         pathMatch: 'full' },
     { 
-        path: 'account', 
-        component: BankAccountListComponent
-    },
-    {
-        path: 'wallet/:id',
-        component: BankWalletDetailComponent
-    },
-    {
-        path: 'transaction-history/:id',
-        component: BankTransactionHistoryComponent
-    },
-    { 
-        path: 'ex', 
-        component: ExListComponent 
-    },
-    { 
         path: '**', 
-        redirectTo: 'ex' 
+        redirectTo: '' 
     }
 ];
 

@@ -1,5 +1,5 @@
-//import * as _ from 'underscore';
 "use strict";
+//import * as _ from 'underscore';
 Object.defineProperty(exports, "__esModule", { value: true });
 var ModalService = (function () {
     function ModalService() {
