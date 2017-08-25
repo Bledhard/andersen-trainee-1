@@ -57,6 +57,7 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -161,6 +162,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Container.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Tests\CustomerControllerTest.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="Controllers\WalletController.cs" />
@@ -259,7 +261,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -278,6 +279,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\app\Components\bank\account\form\bank-account-form.component.ts" />
