@@ -22,6 +22,7 @@ export class CustomerDetailComponent implements OnInit {
     ngOnInit() {
         let id = this.activatedRoute.snapshot.params['id'] as string;
         this.customerService.getCustomer(id)
-            .then(customer => this.customer = customer);
+            .map(res=>res.json())
+            .subscribe(customer => this.customer = customer);
     }
 }

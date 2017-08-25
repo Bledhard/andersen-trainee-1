@@ -22,7 +22,8 @@ var CustomerDetailComponent = (function () {
         var _this = this;
         var id = this.activatedRoute.snapshot.params['id'];
         this.customerService.getCustomer(id)
-            .then(function (customer) { return _this.customer = customer; });
+            .map(function (res) { return res.json(); })
+            .subscribe(function (customer) { return _this.customer = customer; });
     };
     return CustomerDetailComponent;
 }());
