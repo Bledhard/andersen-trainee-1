@@ -1,6 +1,6 @@
 # ASP&#46;NET + Angular test project
 
-The only purpose of this project is to simulate simplified project, to be able to work with main techniques than will be need later at real project and gain knowledge about main things in MVC ASP&#46;NET project.
+The only purpose of this project is to simulate simplified project, to be able to work with main techniques that will be needed later at real project and gain knowledge about main things in MVC ASP&#46;NET project.
 
 Here are:
  - Simple local SQL DB with 3 Tables:
