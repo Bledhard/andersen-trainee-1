@@ -9,6 +9,8 @@ Here are:
    - Transactions;
  - Back-end part:
    - Services, that get data from DB and return it as request further;
+     - ADO.Net services;
+     - Entity Framework services (active);
    - Classes, that create objects for each entity in DB;
    - Controllers, that handle request and return response;
  - Front-end part:
