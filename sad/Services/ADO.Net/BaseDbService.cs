@@ -21,7 +21,6 @@ namespace AndersenTrainee1.Services
                 cmd.ExecuteNonQuery();
                 cn.Close();
             }
-            //Create new wallet for each currency connected to this CustomerID
         }
 
         public virtual List<T> Get()

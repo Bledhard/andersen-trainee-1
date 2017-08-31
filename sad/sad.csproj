@@ -160,7 +160,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Container.cs" />
+    <Compile Include="Context\Container.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Tests\CustomerControllerTest.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -181,16 +181,16 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IDbService.cs" />
+    <Compile Include="Interfaces\ADO.Net\IDbService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\BaseDbService.cs" />
-    <Compile Include="Services\CustomerService.cs" />
-    <Compile Include="Services\EntityFrameworkCustomerService.cs" />
-    <Compile Include="Services\EntityFrameworkTransactionService.cs" />
-    <Compile Include="Services\EntityFrameworkWalletService.cs" />
-    <Compile Include="Services\IEntityFrameworkDbService.cs" />
-    <Compile Include="Services\TransactionService.cs" />
-    <Compile Include="Services\WalletService.cs" />
+    <Compile Include="Services\ADO.Net\BaseDbService.cs" />
+    <Compile Include="Services\ADO.Net\CustomerService.cs" />
+    <Compile Include="Services\EntityFramework\EntityFrameworkCustomerService.cs" />
+    <Compile Include="Services\EntityFramework\EntityFrameworkTransactionService.cs" />
+    <Compile Include="Services\EntityFramework\EntityFrameworkWalletService.cs" />
+    <Compile Include="Interfaces\EntityFramework\IEntityFrameworkDbService.cs" />
+    <Compile Include="Services\ADO.Net\TransactionService.cs" />
+    <Compile Include="Services\ADO.Net\WalletService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\app\Components\bank\account\form\bank-account-form.component.css" />
