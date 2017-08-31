@@ -1,7 +1,7 @@
 namespace AndersenTrainee1.EntityFramework
 {
     using System.Data.Entity;
-    using AndersenTrainee1.EntityFramework.Entities;
+    using AndersenTrainee1.Domain.EntityFramework;
 
     public partial class Container : DbContext
     {

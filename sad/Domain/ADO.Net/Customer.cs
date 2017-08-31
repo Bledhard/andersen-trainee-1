@@ -1,7 +1,7 @@
 ﻿using System;
 using AndersenTrainee1.Extensions;
 
-namespace AndersenTrainee1.Domain
+namespace AndersenTrainee1.Domain.ADONet
 {
     public class Customer : BaseEntity
     {

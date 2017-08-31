@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace AndersenTrainee1.Domain
+namespace AndersenTrainee1.Domain.ADONet
 {
     public class TransactionLog
     {

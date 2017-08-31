@@ -1,10 +1,11 @@
-﻿using AndersenTrainee1.EntityFramework.Entities;
+﻿using AndersenTrainee1.Domain.EntityFramework;
+using AndersenTrainee1.Interfaces.EntityFramework;
+using AndersenTrainee1.EntityFramework;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 
-namespace AndersenTrainee1.EntityFramework.Services
+namespace AndersenTrainee1.Services.EntityFramework
 {
     public class EntityFrameworkTransactionService : IEntityFrameworkDbService<Transaction>
     {

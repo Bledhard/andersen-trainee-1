@@ -1,10 +1,8 @@
-﻿//using AndersenTrainee1.Services;
-//using AndersenTrainee1.Domain;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 using System.Net.Http;
-using AndersenTrainee1.EntityFramework.Services;
-using AndersenTrainee1.EntityFramework.Entities;
+using AndersenTrainee1.Services.EntityFramework;
+using AndersenTrainee1.Domain.EntityFramework;
 
 namespace AndersenTrainee1.Controllers
 {

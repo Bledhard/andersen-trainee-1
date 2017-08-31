@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using AndersenTrainee1.Interfaces;
+using AndersenTrainee1.Interfaces.ADONet;
 using System.Data.SqlClient;
-using AndersenTrainee1.Domain;
+using AndersenTrainee1.Domain.ADONet;
 
-namespace AndersenTrainee1.Services
+namespace AndersenTrainee1.Services.ADONet
 {
     public abstract class BaseDbService<T> : IDbService<T> where T : BaseEntity                                                     
     {

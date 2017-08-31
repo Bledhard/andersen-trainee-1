@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AndersenTrainee1.Domain
+namespace AndersenTrainee1.Domain.ADONet
 {
     public class Transaction : BaseEntity
     {

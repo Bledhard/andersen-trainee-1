@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AndersenTrainee1.Controllers;
-using AndersenTrainee1.EntityFramework.Entities;
+using AndersenTrainee1.Domain.EntityFramework;
 using System.Collections.Generic;
 
 namespace AndersenTrainee1.Tests.Controllers

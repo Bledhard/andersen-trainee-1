@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using AndersenTrainee1.EntityFramework.Entities;
+using AndersenTrainee1.Domain.EntityFramework;
 
-namespace AndersenTrainee1.EntityFramework.Services
+namespace AndersenTrainee1.Interfaces.EntityFramework
 {
     public interface IEntityFrameworkDbService<T> where T : IEntityFramewokBaseEntity
 

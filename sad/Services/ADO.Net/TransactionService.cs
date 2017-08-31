@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using AndersenTrainee1.Domain;
+using AndersenTrainee1.Domain.ADONet;
 
-namespace AndersenTrainee1.Services
+namespace AndersenTrainee1.Services.ADONet
 {
     class TransactionService : BaseDbService<Transaction>
     {

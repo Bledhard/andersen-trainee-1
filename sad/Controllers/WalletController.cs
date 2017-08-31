@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using AndersenTrainee1.Services;
-using AndersenTrainee1.Domain;
+using AndersenTrainee1.Services.ADONet;
+using AndersenTrainee1.Domain.ADONet;
 using System.Web.Http;
 
 namespace AndersenTrainee1.Controllers
