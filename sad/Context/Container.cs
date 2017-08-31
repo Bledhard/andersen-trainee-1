@@ -3,9 +3,9 @@ namespace AndersenTrainee1.EntityFramework
     using System.Data.Entity;
     using AndersenTrainee1.Domain.EntityFramework;
 
-    public partial class Container : DbContext
+    public partial class AT1Context : DbContext
     {
-        public Container()
+        public AT1Context()
             : base("name=Container")
         {
         }

@@ -11,7 +11,7 @@ namespace AndersenTrainee1.Services.EntityFramework
     {
         public void Create(Wallet wallet)
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 db.Wallets.Add(wallet);
                 db.SaveChanges();
@@ -20,7 +20,7 @@ namespace AndersenTrainee1.Services.EntityFramework
 
         public List<Wallet> Get()
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 return db.Wallets.ToList();
             }
@@ -28,7 +28,7 @@ namespace AndersenTrainee1.Services.EntityFramework
 
         public List<Wallet> GetByCustomerId(int CustomerId)
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 var query = from wallets in db.Wallets
                             where wallets.CustomerId == CustomerId
@@ -39,7 +39,7 @@ namespace AndersenTrainee1.Services.EntityFramework
 
         public Wallet Get(int id)
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 return db.Wallets.Find(id);
             }
@@ -47,7 +47,7 @@ namespace AndersenTrainee1.Services.EntityFramework
 
         public virtual void Update(Wallet wallet)
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 var target = db.Wallets.Find(wallet.Id);
                 if (target != null)
@@ -61,7 +61,7 @@ namespace AndersenTrainee1.Services.EntityFramework
 
         public void DeleteByCustomerID(int CustomerID)
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 db.Wallets.RemoveRange(db.Wallets.Where(wallet => wallet.CustomerId == CustomerID));
                 db.SaveChanges();
@@ -70,7 +70,7 @@ namespace AndersenTrainee1.Services.EntityFramework
 
         public void Delete(int id)
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 var wallet = db.Wallets.Find(id);
                 if (wallet != null)

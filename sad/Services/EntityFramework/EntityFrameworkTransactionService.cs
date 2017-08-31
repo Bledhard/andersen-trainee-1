@@ -11,7 +11,7 @@ namespace AndersenTrainee1.Services.EntityFramework
     {
         public void Create(Transaction transaction)
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 db.Transactions.Add(transaction);
                 db.SaveChanges();
@@ -20,7 +20,7 @@ namespace AndersenTrainee1.Services.EntityFramework
 
         public List<Transaction> Get()
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 return db.Transactions.ToList();
             }
@@ -28,7 +28,7 @@ namespace AndersenTrainee1.Services.EntityFramework
 
         public Transaction Get(int id)
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 return db.Transactions.Find(id);
             }
@@ -36,7 +36,7 @@ namespace AndersenTrainee1.Services.EntityFramework
 
         public List<Transaction> GetByWalletId(int WalletId)
         {
-            using (var cn = new Container())
+            using (var cn = new AT1Context())
             {
                 var query = from ta in cn.Transactions
                                   where (ta.From == WalletId || ta.To == WalletId)
@@ -60,7 +60,7 @@ namespace AndersenTrainee1.Services.EntityFramework
         public List<TaLog> GetLogByWalletId(int id)
         {
             var transactionLog = new List<TaLog>();
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 var query = from ca in db.Customers
                             join wa in db.Wallets on ca.Id equals wa.CustomerId
@@ -100,7 +100,7 @@ namespace AndersenTrainee1.Services.EntityFramework
         public void Generate()
         {
             //Method is created for testing purposes, to enlarge DB so its possible to train some specific SQL queries
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 var WalletList = db.Wallets.ToList();
                 var WalletIdList = new List<int>();

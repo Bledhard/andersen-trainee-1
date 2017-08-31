@@ -10,7 +10,7 @@ namespace AndersenTrainee1.Services.EntityFramework
     {
         public virtual void Create(Customer customer)
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 db.Customers.Add(customer);
                 db.SaveChanges();
@@ -19,7 +19,7 @@ namespace AndersenTrainee1.Services.EntityFramework
 
         public List<Customer> Get()
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 return db.Customers.ToList();
             }
@@ -27,7 +27,7 @@ namespace AndersenTrainee1.Services.EntityFramework
 
         public Customer Get(int id)
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 return db.Customers.Find(id);
             }
@@ -35,7 +35,7 @@ namespace AndersenTrainee1.Services.EntityFramework
 
         public virtual void Update(Customer customer)
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 var target = db.Customers.Find(customer.Id);
                 if (target != null)
@@ -48,7 +48,7 @@ namespace AndersenTrainee1.Services.EntityFramework
 
         public void Delete(int id)
         {
-            using (var db = new Container())
+            using (var db = new AT1Context())
             {
                 var target = db.Customers.Find(id);
                 if (target != null)
