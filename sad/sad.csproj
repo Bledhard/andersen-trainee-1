@@ -160,37 +160,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Context\Container.cs" />
-    <Compile Include="Controllers\CustomerController.cs" />
-    <Compile Include="Tests\Controllers\CustomerControllerTest.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TransactionController.cs" />
-    <Compile Include="Controllers\WalletController.cs" />
-    <Compile Include="Domain\ADO.Net\BaseEntity.cs" />
-    <Compile Include="Domain\ADO.Net\Customer.cs" />
-    <Compile Include="Domain\ADO.Net\Transaction.cs" />
-    <Compile Include="Domain\ADO.Net\TransactionLog.cs" />
-    <Compile Include="Domain\ADO.Net\Wallet.cs" />
-    <Compile Include="Domain\EntityFramework\Customer.cs" />
-    <Compile Include="Domain\EntityFramework\IEntityFramewokBaseEntity.cs" />
-    <Compile Include="Domain\EntityFramework\TaLog.cs" />
-    <Compile Include="Domain\EntityFramework\Transaction.cs" />
-    <Compile Include="Domain\EntityFramework\TransactionLog.cs" />
-    <Compile Include="Domain\EntityFramework\Wallet.cs" />
-    <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\ADO.Net\IDbService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ADO.Net\BaseDbService.cs" />
-    <Compile Include="Services\ADO.Net\CustomerService.cs" />
-    <Compile Include="Services\EntityFramework\EntityFrameworkCustomerService.cs" />
-    <Compile Include="Services\EntityFramework\EntityFrameworkTransactionService.cs" />
-    <Compile Include="Services\EntityFramework\EntityFrameworkWalletService.cs" />
-    <Compile Include="Interfaces\EntityFramework\IEntityFrameworkDbService.cs" />
-    <Compile Include="Services\ADO.Net\TransactionService.cs" />
-    <Compile Include="Services\ADO.Net\WalletService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\app\Components\bank\account\form\bank-account-form.component.css" />
@@ -309,6 +283,16 @@
     <TypeScriptCompile Include="src\app\main.ts" />
     <TypeScriptCompile Include="src\app\app.routing.ts" />
     <TypeScriptCompile Include="src\app\Components\shared\modal.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AndersenTrainee1.DAL\AndersenTrainee1.DAL.csproj">
+      <Project>{11458c79-e1a2-4d3a-b1d0-a6c1834f77dc}</Project>
+      <Name>AndersenTrainee1.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AndersenTrainee1.WebApiControllers\AndersenTrainee1.WebApiControllers.csproj">
+      <Project>{d732e309-a8cb-4c0c-bd54-50b8416613c6}</Project>
+      <Name>AndersenTrainee1.WebApiControllers</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
